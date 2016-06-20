@@ -1,0 +1,19 @@
+type: HOST
+name: a1
+ip: 172.0.1.1/16
+lo_ip: 10.0.1.1/24
+---
+type: HOST
+name: b1
+ip: 172.0.2.1/16
+lo_ip: 10.0.2.1/24
+---
+type: HOST
+name: LOOKUPSERVICE
+ip: 172.0.5.1/16
+lo_ip: 127.0.0.1
+---
+type: TOPOLOGY
+adjacency_list:
+  - a1 : [b1]
+  - b1 : [a1]

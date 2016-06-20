@@ -35,13 +35,14 @@ def startNetwork():
     info('** Starting the network\n')
     global net
     net = MiniNExT(topo, controller=OVSController)
+#    net.staticArp()
     net.start()
 
     info('** Dumping host connections\n')
     dumpNodeConnections(net.hosts)
 
-    info('** Testing network connectivity\n')
-    net.ping(net.hosts)
+ #   info('** Testing network connectivity\n')
+ #   net.ping(net.hosts)
 
     info('** Dumping host processes\n')
     for host in net.hosts:
