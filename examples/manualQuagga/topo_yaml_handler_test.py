@@ -1,6 +1,9 @@
 import unittest
-from topo_yaml_handler import TopoYamlHandler
+from .topo_yaml_handler import TopoYamlHandler
 # from topo_yaml_handler import HostStruct
+from unittest.mock import patch
+from unittest.mock import mock_open
+import unittest.mock
 import yaml
 
 
@@ -103,6 +106,19 @@ class TopoYamlHandlerTest(unittest.TestCase):
         self.assertEqual(correctStruct.ip, result_struct.ip)
         self.assertEqual(correctStruct.lo_ip, result_struct.lo_ip)
 
+    # def parseYamlFile_givenYamlFileWithHostType_hostsDataStructFilledCorrectly(self):
+    #     kHostYaml = """
+    #     type : HOST
+    #     name: a1
+    #     ip: 172.0.1.1/16
+    #     lo_ip: 10.0.1.1/24
+    #     """
+
+    #     result_struct = self.topo_yaml_handler.hosts_list[0]
+    #     correctstruct = self.topo_yaml_handler.hoststruct(name='a1', ip='172.0.1.1/16', lo_ip='10.0.1.1/24')
+    #     self.assertequal(result_struct, correctstruct);
 
 
+if __name__ == '__main__':
+    unittest.main()
 

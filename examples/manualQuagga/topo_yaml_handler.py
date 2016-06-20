@@ -55,7 +55,7 @@ class TopoYamlHandler():
                 #of the keys of the dictionary, same logic with the values, we
                 #know there is a single list so we get the first one
                 for node_with_adjacency_list in yaml_document[node]:
-                    return_dictionary[node_with_adjacency_list.keys()[0]] =  node_with_adjacency_list.values()[0]
+                    return_dictionary[list(node_with_adjacency_list.keys())[0]] =  list(node_with_adjacency_list.values())[0]
             return return_dictionary
 
     """Takes in a yaml_ocument with type entry and fills in class datastructures"""
@@ -77,8 +77,8 @@ class TopoYamlHandler():
 def main():
     topo_handler = TopoYamlHandler()
     topo_handler.parseYamlFile('QuaggaTopo.yml')
-    print topo_handler.hosts_list
-    print topo_handler.adjacency_list
+    print (topo_handler.hosts_list)
+    print (topo_handler.adjacency_list)
 
 if __name__ == '__main__':
     main()
