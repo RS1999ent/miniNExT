@@ -1,0 +1,21 @@
+syntax= "proto2";
+
+
+enum HostType
+{
+  HT_UNKNOWN = 0;
+  HT_QUAGGA = 1;
+  HT_LOOKUPSERVICE = 2;
+}
+
+message Host
+{
+  optional HostType host_type = 1;
+  optional string ip = 2;
+  optional string lo_ip = 3;
+}
+
+message Topology
+{
+  
+}
