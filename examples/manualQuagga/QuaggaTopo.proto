@@ -15,7 +15,12 @@ message Host
   optional string lo_ip = 3;
 }
 
+message AdjacencyListEntry{
+  optional string primary_node_name = 1;
+  repeated string adjacent_node_names = 2;
+}
+
 message Topology
 {
-  
+  repeated AdjacencyListEntry adjacency_list_entries = 1;
 }
