@@ -13,6 +13,7 @@ message Host
   optional HostType host_type = 1;
   optional string ip = 2;
   optional string lo_ip = 3;
+  optional uint32 as_num = 4;
 }
 
 message AdjacencyListEntry{

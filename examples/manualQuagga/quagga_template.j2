@@ -1,0 +1,15 @@
+! path logfile for this daemon (BGPD)
+log file /var/log/quagga/bgpd.log
+
+! the password to use for telnet authentication
+password bgpuser
+
+! this routers AS number and BGP ID
+router bgp {{ local_asn }}
+ bgp router-id {{ lo_ip }}
+ 
+{% for neighbor in neighbors %}
+  neighbor {{ neighbor.ip }} remote-as {{ neighbor.as }}
+ 
+ ! the network this router will advertise
+! network 10.0.1.0/24
