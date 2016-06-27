@@ -6,7 +6,7 @@ from StringIO import StringIO
 class ProtobufConfigParserTest(unittest.TestCase):
     protobuf_config_parser = None
     def setUp(self):
-        self.protobuf_config_parser = ProtobufConfigParser();
+        self.protobuf_config_parser = ProtobufConfigParser()
     def parseProtobufConfig_givenConfigWithOneHostEntry_ClassDataStructHaveOneEntry(self):
         kTestInput = """
         <begin Host>
