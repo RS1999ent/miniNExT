@@ -27,7 +27,7 @@ class GenerateQuaggaConfigsTest(unittest.TestCase):
     def setUp(self):
                 self.jinja2_env_ = jinja2.Environment(loader=jinja2.DictLoader({'quagga_template.j2' : self.kBgpdTemplate}))
 
-    def CreateBgpdConfigs_GivenOneHost_OneStringConfigReturned(self):
+    def testCreateBgpdConfigs_GivenOneHost_OneStringConfigReturned(self):
         kCorrectOutput = """
         ! path logfile for this daemon (BGPD)
         log file /var/log/quagga/bgpd.log
@@ -64,7 +64,7 @@ class GenerateQuaggaConfigsTest(unittest.TestCase):
         self.assertEquals(result_configs_list[0], kCorrectOutput)
 
 
-    def CreateBgpdConfigs_GivenTwoHost_TwoStringConfigReturned(self):
+    def testCreateBgpdConfigs_GivenTwoHost_TwoStringConfigReturned(self):
         kCorrectOutputHost1 = """
         ! path logfile for this daemon (BGPD)
         log file /var/log/quagga/bgpd.log
@@ -115,7 +115,7 @@ class GenerateQuaggaConfigsTest(unittest.TestCase):
         self.assertEquals(result_configs_list[1], kCorrectOutputHost2)
 
 
-    def CreateBgpdConfigs_GivenTwoHostWithOneOfThemBeingATypeLookUpService_OneStringConfigReturned(self):
+    def testCreateBgpdConfigs_GivenTwoHostWithOneOfThemBeingATypeLookUpService_OneStringConfigReturned(self):
         kCorrectOutputHost1 = """
         ! path logfile for this daemon (BGPD)
         log file /var/log/quagga/bgpd.log
@@ -161,3 +161,6 @@ class GenerateQuaggaConfigsTest(unittest.TestCase):
         self.assertEquals(result_configs_list[0], kCorrectOutputHost1)
         self.assertEquals(len(result_configs_list), 1)
 
+suite = unittest.TestLoader().loadTestsFromTestCase(GenerateQuaggaConfigsTest)
+runner = unittest.TextTestRunner()
+runner.run(suite)

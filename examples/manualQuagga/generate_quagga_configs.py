@@ -21,6 +21,14 @@ class GenerateQuaggaConfigs():
         self.jinja2_env_ = jinja2_env
 
     def CreateBgpdConfigs(self):
+        """Creates a list of bgp configs from the quagga_bgpd_template.j2 using the
+protobuf Host and Topology message type. Topology informs the neighbor quagga
+configuration lines and the host informs the router-id and router bgp lines
+        It ignores HT_LOOKUP service type host
+
+        Returns: a list of configurations to be written to files
+
+        """
         template = 'quagga_template.j2'
         bgpd_template = self.jinja2_env_.get_template(template)
         config_list = []
