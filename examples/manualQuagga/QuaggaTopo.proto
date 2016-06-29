@@ -11,9 +11,10 @@ enum HostType
 message Host
 {
   optional HostType host_type = 1;
-  optional string ip = 2;
-  optional string lo_ip = 3;
-  optional uint32 as_num = 4;
+  optional string host_name = 2;
+  optional string ip = 3;
+  optional string lo_ip = 4;
+  optional uint32 as_num = 5;
 }
 
 message AdjacencyListEntry{
