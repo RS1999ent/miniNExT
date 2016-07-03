@@ -121,6 +121,3 @@ def OpenCreateWrite(file_path, write_data):
     os.chown(file_path, uid, gid)
 
 
-
-# WriteConfigs({'test' : 'bgpdsdfsdf'})
-DeleteConfigs()
