@@ -1,0 +1,26 @@
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "a1"
+ip: "172.0.1.1"
+lo_ip: "10.0.1.1"
+as_num: 100
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "b1"
+ip: "172.0.2.1"
+lo_ip: "10.0.2.1"
+as_num: 101
+<end Host>
+
+<begin Topology>
+adjacency_list_entries {
+primary_node_name: "a1"
+adjacent_node_names: "b1"
+}
+adjacency_list_entries {
+primary_node_name: "b1"
+adjacent_node_names: "a1"
+}
+<end Topology>

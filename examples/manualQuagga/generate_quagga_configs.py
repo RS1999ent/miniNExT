@@ -85,7 +85,7 @@ class GenerateQuaggaConfigs():
             adjacent_host_ip = adjacent_host_proto.ip
             adjacent_host_asn = adjacent_host_proto.as_num
             neighbor_dict['ip'] = adjacent_host_ip
-            neighbor_dict['as'] = adjacent_host_asn
+            neighbor_dict['asn'] = adjacent_host_asn
             neighbors.append(neighbor_dict)
         template_variable_dict['neighbors'] = neighbors
         # print "CONIFG DICT FROM HANDLE TOPO ", template_variable_dict

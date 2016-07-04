@@ -13,7 +13,7 @@ class ProtobufConfigParser():
     protobuf_Topologys_ = []
 
     def parseProtobufConfig(self, open_file_handle):
-        """Goes through passed file and parses it into the various protobuf
+        """ Goes through passed file and parses it into the various protobuf
         datastructures Class lists that will be mutated will be the protobuf_.*
         with the protobuf messages added to each correspond to the type listed
         in the variable name
@@ -39,7 +39,7 @@ class ProtobufConfigParser():
                 protobuf_message += line
 
     def ParseProtoMessageIntoDataStructs(self, message, message_type):
-        """Taken a protobuf message in string format and its type, parses it into the
+        """ Taken a protobuf message in string format and its type, parses it into the
         proper class datastructure holding the protobuf
         Arugments:
            message: the text formatted protbuf message to be parsed.
@@ -52,6 +52,7 @@ class ProtobufConfigParser():
                 Merge(message, new_host)
             except Exception:
                 return -1
+            # Merge(message, new_host)
             self.protobuf_Hosts_.append(new_host)
             return 1
         if message_type == 'Topology':

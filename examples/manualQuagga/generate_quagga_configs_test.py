@@ -17,7 +17,7 @@ class GenerateQuaggaConfigsTest(unittest.TestCase):
     bgp router-id {{ ip }}
 
     {% for neighbor in neighbors %}
-    neighbor {{ neighbor.ip }} remote-as {{ neighbor.as }}
+    neighbor {{ neighbor.ip }} remote-as {{ neighbor.asn }}
     {% endfor %}
 
     ! the network this router will advertise
