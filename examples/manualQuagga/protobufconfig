@@ -14,6 +14,13 @@ lo_ip: "10.0.2.1"
 as_num: 101
 <end Host>
 
+<begin Host>
+host_type : HT_LOOKUPSERVICE
+host_name: "l1"
+ip: "172.1.1.1"
+path_to_redis : "/home/david/repos/kvstores/redis/src/redis-server"
+<end Host>
+
 <begin Topology>
 adjacency_list_entries {
 primary_node_name: "a1"

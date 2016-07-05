@@ -15,6 +15,7 @@ message Host
   optional string ip = 3;
   optional string lo_ip = 4;
   optional uint32 as_num = 5;
+  optional string path_to_redis = 6;
 }
 
 message AdjacencyListEntry{
