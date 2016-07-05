@@ -6,6 +6,7 @@ Example network of Quagga routers
 """
 
 import sys
+import subprocess
 import atexit
 
 # patch isShellBuiltin
@@ -32,8 +33,16 @@ import argparse
 net = None
 
 def InitializeArgParser():
-    """  asdfasdf"""
-    return 1
+    """ Function where you should add additional command line arguments.
+
+    Returns: the return of argparse.parse_args()"""
+
+    parser = argparse.ArgumentParser()
+    #add argument for the configuration file
+    parser.add_argument('-f', '--protobuf_config_file',
+                        default='protobufconfig',
+                        help='File where the general configuration for the program is stored as specified by QuaggaTopo.proto')
+    return parser.parse_args()
 
 def startNetwork(host_protos):
     """instantiates a topo, then starts the network and prints debug information
@@ -65,7 +74,38 @@ def startNetwork(host_protos):
 
     info('** Running CLI\n')
     # net.startTerms()
+
+    # start up redis on the lookup service host (specified in
+    # host_protos)
+    StartUpRedis(host_protos)
     CLI(net)
+
+def StartUpRedis(host_protos):
+    """ Given a list of host protos, run external program 'mx' that allows one to
+    start up a program on an running host container. This function will use that
+    program to start up redis on the appropraite hosts.
+
+    Arguments:
+       host_protos: list of host protobuf messages as defined in
+       QuaggaTopo.proto, only the one with type HT_LOOKUPSERVICE will have
+       redis started on it.
+    
+    """
+    #find lookup service host proto host name
+    lookupservice_host_name = ''
+    redis_path = ''
+    for host_proto in host_protos:
+        if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE')):
+            lookupservice_host_name = host_proto.host_name
+            redis_path = host_proto.path_to_redis
+            break
+
+    #run mx <host_name> <path_to_redis> commandline
+    command = './mx ' + lookupservice_host_name + ' ' + redis_path
+    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    # print 'starting redis command'
+    # print p.stdout.readlines()
+    # print p.stderr
 
 
 def stopNetwork():
@@ -74,8 +114,14 @@ def stopNetwork():
     if net is not None:
         info('** Tearing down Quagga network\n')
         net.stop()
+    # cleanup generated configs
+    create_configs_and_directory_structure.DeleteConfigs()
 
 if __name__ == '__main__':
+
+    #parse commandline arguments
+    args = InitializeArgParser()
+    print args
     # Force cleanup on exit by registering a cleanup function
     atexit.register(stopNetwork)
 
@@ -85,7 +131,7 @@ if __name__ == '__main__':
 
     # handle config specification
     config_parser = ProtobufConfigParser()
-    protobuf_config_file_handle = open('protobufconfig', 'r')
+    protobuf_config_file_handle = open(args.protobuf_config_file, 'r')
     config_parser.parseProtobufConfig(protobuf_config_file_handle)
     host_protos = config_parser.protobuf_Hosts_
     topology_protos = config_parser.protobuf_Topologys_
