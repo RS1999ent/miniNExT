@@ -1,6 +1,8 @@
 syntax= "proto2";
 
 
+// Specifies the type of host. Currently there are only two types, a quagga host
+// and a lookup service host.
 enum HostType
 {
   HT_UNKNOWN = 0;
@@ -8,6 +10,10 @@ enum HostType
   HT_LOOKUPSERVICE = 2;
 }
 
+// Defines the information needed to start a host up in mininet and the
+// information needed to generated quagga bgpd configs. 'path_to_redis' is only
+// used for a host_type of HT_LOOKUPSERVICE. lo_ip and as_num are used by
+// HT_QUAGGA host types.
 message Host
 {
   optional HostType host_type = 1;
@@ -18,11 +24,16 @@ message Host
   optional string path_to_redis = 6;
 }
 
+// Defines an adjacency list entry in a topology. This is used exclusively in
+// the generation of quagga configs (i.e. what neighbors each quagga router
+// has).
 message AdjacencyListEntry{
   optional string primary_node_name = 1;
   repeated string adjacent_node_names = 2;
 }
 
+// Specifies an adjacency list of a bgp topology (does not specify the physical
+// topology currently)
 message Topology
 {
   repeated AdjacencyListEntry adjacency_list_entries = 1;
