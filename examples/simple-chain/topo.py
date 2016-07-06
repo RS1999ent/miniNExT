@@ -58,6 +58,7 @@ class QuaggaTopo(Topo):
         ixpfabric = self.addSwitch('fabric-sw1')
         testHost = self.addHost(name='test')
 
+
         # Add Redis service
         redisServer = self.addHost(name='redis',
                      ip='172.0.5.1/16',
