@@ -60,18 +60,18 @@ class QuaggaTopo(Topo):
 
         # Add Redis service
         redisServer = self.addHost(name='redis',
-                     ip='172.1.1.1',
+                     ip='172.0.5.1/16',
                      hostname='redis',
                      privateLogDir=True,
                      privateRunDir=True,
                      inMountNamespace=True,
                      inPIDNamespace=True,
                      inUTSNamespace=True)
-        quaggaSvcConfig = \
+        redisSvcConfig = \
             {'redisConfigPath': redisBaseConfigPath + 'redis'}
         self.addNodeService(node='redis', service=redisSvc,
-                            nodeConfig=quaggaSvcConfig)
-        self.addLink(redisServer, ixpfabric)
+                            nodeConfig=redisSvcConfig)
+        self.addLink(ixpfabric, redisServer)
 
         # Setup each Quagga router, add a link between it and the IXP fabric
         for host in quaggaHosts:
@@ -96,8 +96,8 @@ class QuaggaTopo(Topo):
                                 nodeConfig=quaggaSvcConfig)
 
             # Attach the quaggaContainer to the IXP Fabric Switch
-            self.addLink(quaggaContainer, ixpfabric)
+            self.addLink(ixpfabric, quaggaContainer)
 
-        self.addLink(testHost, ixpfabric)
+        self.addLink(ixpfabric, testHost)
 
 
