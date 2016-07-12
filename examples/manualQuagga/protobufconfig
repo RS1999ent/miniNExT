@@ -18,7 +18,7 @@ as_num: 101
 host_type : HT_LOOKUPSERVICE
 host_name: "l1"
 ip: "172.1.1.1"
-path_to_redis : "/home/david/repos/kvstores/redis/src/redis-server"
+path_to_redis : "redis-server"
 <end Host>
 
 <begin Topology>

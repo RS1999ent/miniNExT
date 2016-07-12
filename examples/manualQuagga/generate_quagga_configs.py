@@ -47,8 +47,9 @@ class GenerateQuaggaConfigs():
             template_variable_dict = {}
             template_variable_dict['asn'] = host_proto.as_num
             template_variable_dict['ip'] = host_proto.ip
+            template_variable_dict['network'] = host_proto.lo_ip + '/24'
             self.HandleTopology(template_variable_dict, hostname_to_host_dict, host_proto)
-            config_dict[host_proto.host_name]= bgpd_template.render(template_variable_dict)
+            config_dict[host_proto.host_name]= str(bgpd_template.render(template_variable_dict))
         # print "CONIFG DICT after HANDLE TOPO ", config_dict['a1']
         return config_dict
 

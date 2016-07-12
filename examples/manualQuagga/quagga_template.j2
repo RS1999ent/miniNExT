@@ -12,4 +12,4 @@ router bgp {{ asn }}
   neighbor {{ neighbor.ip }} remote-as {{ neighbor.asn }}
 {% endfor %} 
  ! the network this router will advertise
-! network 10.0.1.0/24
+ network {{network}}

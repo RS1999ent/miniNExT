@@ -105,7 +105,7 @@ def DeleteConfigs():
         shutil.rmtree('configs')
 
 def OpenCreateWrite(file_path, write_data):
-    """Opens a file (if it doesn't exist, it creates it). Writes data to it and
+    """ Opens a file (if it doesn't exist, it creates it). Writes data to it and
     closes after write. Makes each file owned by quagga in group quaggavty
 
     Arguments:
@@ -119,5 +119,4 @@ def OpenCreateWrite(file_path, write_data):
     uid = pwd.getpwnam('quagga').pw_uid
     gid = grp.getgrnam('quaggavty').gr_gid
     os.chown(file_path, uid, gid)
-
 

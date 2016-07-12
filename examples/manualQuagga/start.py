@@ -144,7 +144,7 @@ if __name__ == '__main__':
     hostname_to_bgpdconfig = generate_quagga_configs.CreateBgpdConfigs()
 
     # Write configs to file system
-    # create_configs_and_directory_structure.WriteConfigs(hostname_to_bgpdconfig)
+    create_configs_and_directory_structure.WriteConfigs(hostname_to_bgpdconfig)
 
     #start up mininet
     startNetwork(host_protos)
