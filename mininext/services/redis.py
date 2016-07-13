@@ -57,9 +57,9 @@ class RedisService(Service):
         """After mounts and other operations taken care of by Service Helper,
            we perform a few last minute tasks here"""
 
-        # Initialize log directory
+        # Initialize log director'loy
         _, err, ret = node.pexec("mkdir /var/log/redis")
-        _, err, ret = node.pexec("chown root:root /var/log/redis")
+        _, err, ret = node.pexec("chown redis:redis /var/log/redis")
 
     def getDefaultGlobalParams(self):
         "Returns the default parameters for this service"
@@ -77,8 +77,8 @@ class RedisService(Service):
         mountConfigPairs = {}
 
         # redis configuration paths
-        redisConfigPerms = ObjectPermissions(username='root',
-                                             groupname='root',
+        redisConfigPerms = ObjectPermissions(username='redis',
+                                             groupname='redis',
                                               mode=0o775,
                                               strictMode=False,
                                               enforceRecursive=True)

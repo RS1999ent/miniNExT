@@ -36,7 +36,7 @@ class QuaggaTopo(Topo):
 
         # Path configurations for mounts
         quaggaBaseConfigPath = selfPath + '/configs/'
-        redisBaseConfigPath = selfPath = '/configs/'
+        redisBaseConfigPath = selfPath + '/configs/'
 
         # List of Quagga host configs
         quaggaHosts = []
