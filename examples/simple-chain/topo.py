@@ -60,9 +60,10 @@ class QuaggaTopo(Topo):
 
 
         # Add Redis service
-        redisServer = self.addHost(name='redis',
+        # Call it 1-redis  to force it to start before other hosts
+        redisServer = self.addHost(name='1-redis',
                      ip='172.0.5.1/16',
-                     hostname='redis',
+                     hostname='1-redis',
                      privateLogDir=True,
                      privateRunDir=True,
                      inMountNamespace=True,
@@ -70,7 +71,7 @@ class QuaggaTopo(Topo):
                      inUTSNamespace=True)
         redisSvcConfig = \
             {'redisConfigPath': redisBaseConfigPath + 'redis'}
-        self.addNodeService(node='redis', service=redisSvc,
+        self.addNodeService(node='1-redis', service=redisSvc,
                             nodeConfig=redisSvcConfig)
         self.addLink(ixpfabric, redisServer)
 
