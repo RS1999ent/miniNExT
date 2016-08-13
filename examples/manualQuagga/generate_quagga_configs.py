@@ -72,8 +72,8 @@ class GenerateQuaggaConfigs():
         adjacent_nodes = []
         for adjacency_list_entry in self.protobuf_Topologys_[0].adjacency_list_entries:
             if adjacency_list_entry.primary_node_name == host_proto.host_name:
-                for adjacent_node_name in adjacency_list_entry.adjacent_node_names:
-                    adjacent_nodes.append(adjacent_node_name)
+                for adjacent_node_link in adjacency_list_entry.links:
+                    adjacent_nodes.append(adjacent_node_link.adjacent_node_name)
                 break
         # for each adjacent node, find the corresponding hostproto and add it
         # to the neighbor list of dictionaries. Add it to the template_variable_dict at

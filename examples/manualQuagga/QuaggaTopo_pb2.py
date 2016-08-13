@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='QuaggaTopo.proto',
   package='',
-  serialized_pb=_b('\n\x10QuaggaTopo.proto\"y\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_redis\x18\x06 \x01(\t\"L\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x1b\n\x13\x61\x64jacent_node_names\x18\x02 \x03(\t\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry*?\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02')
+  serialized_pb=_b('\n\x10QuaggaTopo.proto\"y\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_redis\x18\x06 \x01(\t\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry*?\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -44,8 +44,8 @@ _HOSTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=286,
-  serialized_end=349,
+  serialized_start=334,
+  serialized_end=397,
 )
 _sym_db.RegisterEnumDescriptor(_HOSTTYPE)
 
@@ -121,24 +121,24 @@ _HOST = _descriptor.Descriptor(
 )
 
 
-_ADJACENCYLISTENTRY = _descriptor.Descriptor(
-  name='AdjacencyListEntry',
-  full_name='AdjacencyListEntry',
+_LINK = _descriptor.Descriptor(
+  name='Link',
+  full_name='Link',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='primary_node_name', full_name='AdjacencyListEntry.primary_node_name', index=0,
+      name='adjacent_node_name', full_name='Link.adjacent_node_name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='adjacent_node_names', full_name='AdjacencyListEntry.adjacent_node_names', index=1,
-      number=2, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
+      name='link_cost', full_name='Link.link_cost', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -154,7 +154,44 @@ _ADJACENCYLISTENTRY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=143,
-  serialized_end=219,
+  serialized_end=196,
+)
+
+
+_ADJACENCYLISTENTRY = _descriptor.Descriptor(
+  name='AdjacencyListEntry',
+  full_name='AdjacencyListEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='primary_node_name', full_name='AdjacencyListEntry.primary_node_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='links', full_name='AdjacencyListEntry.links', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=198,
+  serialized_end=267,
 )
 
 
@@ -183,13 +220,15 @@ _TOPOLOGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=221,
-  serialized_end=284,
+  serialized_start=269,
+  serialized_end=332,
 )
 
 _HOST.fields_by_name['host_type'].enum_type = _HOSTTYPE
+_ADJACENCYLISTENTRY.fields_by_name['links'].message_type = _LINK
 _TOPOLOGY.fields_by_name['adjacency_list_entries'].message_type = _ADJACENCYLISTENTRY
 DESCRIPTOR.message_types_by_name['Host'] = _HOST
+DESCRIPTOR.message_types_by_name['Link'] = _LINK
 DESCRIPTOR.message_types_by_name['AdjacencyListEntry'] = _ADJACENCYLISTENTRY
 DESCRIPTOR.message_types_by_name['Topology'] = _TOPOLOGY
 DESCRIPTOR.enum_types_by_name['HostType'] = _HOSTTYPE
@@ -200,6 +239,13 @@ Host = _reflection.GeneratedProtocolMessageType('Host', (_message.Message,), dic
   # @@protoc_insertion_point(class_scope:Host)
   ))
 _sym_db.RegisterMessage(Host)
+
+Link = _reflection.GeneratedProtocolMessageType('Link', (_message.Message,), dict(
+  DESCRIPTOR = _LINK,
+  __module__ = 'QuaggaTopo_pb2'
+  # @@protoc_insertion_point(class_scope:Link)
+  ))
+_sym_db.RegisterMessage(Link)
 
 AdjacencyListEntry = _reflection.GeneratedProtocolMessageType('AdjacencyListEntry', (_message.Message,), dict(
   DESCRIPTOR = _ADJACENCYLISTENTRY,

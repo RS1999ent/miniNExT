@@ -1,11 +1,12 @@
 import unittest
 import quagga_config_pb2
-import jinja2
+import QuaggaTopo_pb2
 from generate_wiser_configs import GenerateWiserConfigs
 from google.protobuf.text_format import Merge
 
 class GenerateWiserConfigsTest(unittest.TestCase):
 
+    #TODO: check if hosttype is quagga (todo). Test with a topology (todo)
     def testXCreateBgpdConfigsXOneHostQuaggaTopoXOneNodeLinkWiserConfig(self):
         #arrange
         kHostList = [
@@ -21,7 +22,7 @@ class GenerateWiserConfigsTest(unittest.TestCase):
 
         kCorrectWiserConfigDict = {'a1' :
         """
-        Topology {
+        topology {
         node_links {
         primary_node {
         node_name : 'a1'
@@ -33,11 +34,10 @@ class GenerateWiserConfigsTest(unittest.TestCase):
         }
 
         correct_dictionary = {}
-        for hostname,text_proto in kCorrectWiserConfigDict:
+        for hostname,text_proto in kCorrectWiserConfigDict.iteritems():
             tmp_wiserprotocolconfig = quagga_config_pb2.WiserProtocolConfig()
             Merge(text_proto, tmp_wiserprotocolconfig)
             correct_dictionary[hostname] = tmp_wiserprotocolconfig.SerializeToString()
-        Merge(kCorrectWiserConfig, correct_config)
 
         host_list = []
         for host_string in kHostList:
@@ -50,5 +50,15 @@ class GenerateWiserConfigsTest(unittest.TestCase):
         #act
         result_configs_dict = generate_wiser_configs.CreateWiserConfigs()
 
+        #serialize protos for equality checking
+        assert_dict = {}
+        for hostname, wiserprotocolconfig in result_configs_dict:
+            assert_dict[hostname] = wiserprotocolconfig.SerializeToString()
+
+
         #assert
-        self.assertDictEqual(correct_dictionary, result_configs_dict)
+        self.assertDictEqual(correct_dictionary, assert_dict)
+
+suite = unittest.TestLoader().loadTestsFromTestCase(GenerateWiserConfigsTest)
+runner = unittest.TextTestRunner()
+runner.run(suite)

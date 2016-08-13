@@ -207,11 +207,15 @@ router bgp 101
         kTopology = """
         adjacency_list_entries {
         primary_node_name: 'a1'
-        adjacent_node_names: 'b1'
+        links {
+        adjacent_node_name :'b1'
+        }
         }
         adjacency_list_entries {
         primary_node_name: 'b1'
-        adjacent_node_names: 'a1'
+        links {
+        adjacent_node_name :'a1'
+        }
         }
         """
 

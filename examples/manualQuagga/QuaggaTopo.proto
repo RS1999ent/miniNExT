@@ -24,12 +24,20 @@ message Host
   optional string path_to_redis = 6;
 }
 
+// Defines the properties of a link. This is used in Adjacency list entry to
+// describe the link from a primary node to its neighbors
+message Link{
+  optional string adjacent_node_name = 1;
+  optional uint32 link_cost = 2;
+}
+
 // Defines an adjacency list entry in a topology. This is used exclusively in
 // the generation of quagga configs (i.e. what neighbors each quagga router
 // has).
 message AdjacencyListEntry{
   optional string primary_node_name = 1;
-  repeated string adjacent_node_names = 2;
+repeated Link links = 2;
+  // repeated string adjacent_node_names = 2;
 }
 
 // Specifies an adjacency list of a bgp topology (does not specify the physical
