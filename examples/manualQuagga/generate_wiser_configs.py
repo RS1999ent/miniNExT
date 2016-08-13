@@ -19,16 +19,42 @@ that quagga wants. """
 dictionary of hostname to the wiserprotocolconfig protobufs returns: A
 dictionary keyed on the host name and the WiserProtocolConfig as the value """
         return_dict = {}
+        wiser_protocol_config = quagga_config_pb2.WiserProtocolConfig()
 
         #for each host in the protobuf hosts, make sure that it is not a
         #lookupservice node. Then for each entry in the topology where it is
         #the primary node, add Link with the remote addr and link cost. These
         #two things should make a nodelink.
         for host_proto in self.protobuf_hosts_:
-            if host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE'):
+            if host_proto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
                 continue
+            node_link = quagga_config_pb2.NodeLink()
             hostname = host_proto.host_name
             local_addr = host_proto.ip
+            node_link.primary_node.CopyFrom(self.CreateNodeProperty(hostname, local_addr))
+            #not efficient, but just fund the adjacent nodes quikly
+            adjacent_links = []
+            if self.protobuf_topologys_ != None:
+                for adjacency_list_entry in self.protobuf_topologys_[0].adjacency_list_entries:
+                    if adjacency_list_entry.primary_node_name == hostname:
+                        for adjacent_node_link in adjacency_list_entry.links:
+                            adjacent_links.append(adjacent_node_link)
+                        break
+            for link in adjacent_links:
+                adjacenthost = self.FindHostProtoFromName(link.adjacent_node_name)
+                adjacentnodename = link.adjacent_node_name
+                adjacent_addr = adjacenthost.ip
+                linkcost = link.link_cost
+                proto_link = self.CreateLink(adjacentnodename, adjacent_addr, linkcost)
+                #copy the created link into thisone
+                node_link.links.add().CopyFrom(proto_link)
+            if len(adjacent_links) >= 1:
+                wiser_protocol_config.topology.node_links.add().CopyFrom(node_link)
+        for hostproto in self.protobuf_hosts_:
+            if host_proto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
+                continue
+            hostname = hostproto.host_name
+            return_dict[hostname] = wiser_protocol_config
         return return_dict
 
     # creates a quagga_config::NodeProperty from a hostname and interfaceip
@@ -55,6 +81,21 @@ dictionary keyed on the host name and the WiserProtocolConfig as the value """
     # with the link cost set
     def CreateLink(self, hostname, interfaceip, linkcost):
         return_link = quagga_config_pb2.Link()
-        return_link.adjacent_node = CreateNodeProperty(hostname, interfaceip)
+        return_link.adjacent_node.CopyFrom(self.CreateNodeProperty(hostname, interfaceip))
         return_link.link_cost = linkcost
-        return returnlink
+        return return_link
+
+    # Given a hostname, find the corresponding host proto in the class data
+    # structure. This is not an efficient implementation
+    #
+    # Arguments:
+    #   hostname: the name of the host to find.
+    #
+    # Returns: The corresponding proto that is the host. Empty if host does not
+    # exist
+    def FindHostProtoFromName(self, hostname):
+        return_host = QuaggaTopo_pb2.Host()
+        for host in self.protobuf_hosts_:
+            if host.host_name == hostname:
+                return host
+
