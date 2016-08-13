@@ -29,7 +29,6 @@ dictionary keyed on the host name and the WiserProtocolConfig as the value """
         for host_proto in self.protobuf_hosts_:
             if host_proto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
                 continue
-            print 'HERE IN WISERCONFIG'
             node_link = quagga_config_pb2.NodeLink()
             hostname = host_proto.host_name
             local_addr = host_proto.ip
@@ -42,6 +41,8 @@ dictionary keyed on the host name and the WiserProtocolConfig as the value """
                         for adjacent_node_link in adjacency_list_entry.links:
                             adjacent_links.append(adjacent_node_link)
                         break
+            #add a link for each adjacent link to node_link (this is what is
+            #being added to the config)
             for link in adjacent_links:
                 adjacenthost = self.FindHostProtoFromName(link.adjacent_node_name)
                 adjacentnodename = link.adjacent_node_name
@@ -53,7 +54,6 @@ dictionary keyed on the host name and the WiserProtocolConfig as the value """
             if len(adjacent_links) >= 1:
                 wiser_protocol_config.topology.node_links.add().CopyFrom(node_link)
         for hostproto in self.protobuf_hosts_:
-            print 'HERE at end', wiser_protocol_config.__str__()
             if hostproto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
                 continue
             hostname = hostproto.host_name

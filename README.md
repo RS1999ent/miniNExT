@@ -1,7 +1,119 @@
+
+BELOW IS THE INFORMATION FOR RUNNING THE 'manualQuagga' example.
+
+This file describes how to use the sample quagga-ixp topology
+provided with MiniNexT.  The quagga-ixp topology simulates a small
+network w/a few ASes connected to each other via a switch.  Each AS is
+simulated by a single Quagga router.
+
+0)apt-get install mininet.  Make sure it is version 2.1
+
+1)Clone MiniNeXt and build it.
+
+2)Cd to examples/manualQuagga
+
+3)sudo start.py to start mininet with a default config, which is
+'protobufconfig' in examples/manualQuagga.
+
+start.py commandline:
+         -f/--protobuf_config_file - name of file in current
+         directoy or fully qualified path to file that contains the configuration in
+         protobuf text format. By default, it uses the file named "protobufconfig" if
+         this isn't specified
+         -h - displays helpline for commandline options
+
+Configuration format:
+
+Each top level message is demarcated by a <begin ''messagetype''> ... <end ''messagetype''>
+Host config example:
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "b1"
+ip: "172.0.2.1"
+lo_ip: "10.0.2.1"
+as_num: 101
+<end Host>
+
+Defines the protobuf text format for a 'Host' message type and will be parsed
+into a host protobuf message.
+
+Topology config example:
+<begin Topology>
+adjacency_list_entries {
+    primary_node_name: "a1"
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "b1"
+    links{
+        adjacent_node_name: "a1"
+        link_cost: 10
+    }
+}
+<end Topology>
+
+This defines a protobuf topology message in text format.
+NOTE1: while it looks
+like you can have asymetric link costs, when quagga is running, it is assuming
+that consts are symetric. Therefore, if you define asymetric costs, the behavior is undefined.
+NOTE2: For the purposes of configuration in MiniNext, you have to define both
+ends of the link. That is, a link from a1 to b1 has to be defined like above
+(one from a1 to b1 and one from b1 to a1).
+
+An example of defining a redis host is:
+<begin Host>
+host_type : HT_LOOKUPSERVICE
+host_name: "l1"
+ip: "172.1.1.1"
+path_to_redis : "redis-server"
+<end Host>
+
+'path_to_redis' is the command that will start redis-server relative from root.
+The ip should be the wellknown ip that is defined in quagga.
+
+Each message specification is defined by the protobuf, QuaggaTopo.proto. See
+the file "protobufconfig" for an example configuation. See documentation in
+QuaggaTopo.proto for more information.
+
+Required fields:
+
+While all fields are defined as 'optional' in the proto, you should fill in all
+fields related to the type of thing being defined otherwise undefined behavior
+may occur.
+
+host requird fields:
+host_type : REQUIRED for all hosts
+host_name : REQUIRED for all hosts
+ip : REQUIRED for all hosts
+lo_ip : REQUIRED for HT_QUAGGA hosts
+as_num : REQUIRED for HT_QUAGGA hosts
+path_to_redis : REQUIRED for HT_LOOKUPSERVICE hosts
+
+topology requird fields:
+each adjacentcy_list_entries should have a primary_node_name and at least one
+"links" and each "links" must have an 'adjacent_node_name' and 'link_cost'
+
+Dependencies:
+Runs with python 2.7
+libprotoc 2.6.1
+protobuf-compiler
+python-protobuf
+
+The following commands should build python libraries.
+pip install jinja2
+pip install protobuf
+
+BELOW IS THE README FROM THE MASTER MININEXT REPO
+
 miniNExT
 ==============
 
 MiniNExT (_Mininet ExTended_) is an extension layer that makes it easier to build complex networks in [Mininet](http://www.mininet.org).
+
+**MiniNExT does not currently support the latest version of Mininet -- you must use version 2.1.0**
 
 MiniNExT includes building blocks that are used in many experimental networks, including:
 
@@ -39,14 +151,26 @@ For problems with the code base, please use the GitHub issue tracker. All other 
 
 MiniNExT depends on the Mininet software package, and thus you must have Mininet installed.
 
+**MiniNExT does not currently support the latest version of Mininet -- you must use version 2.1.0**
+
 You can check if you already have Mininet installed and its version by executing `mn --version`
 
-If Mininet is not installed, you can install it on Debian/Ubuntu by executing:
+You can install Mininet version 2.1.0 on Ubuntu by executing:
 ```
-$ sudo apt-get install mininet
+$ sudo apt-get install mininet=2.1.0-0ubuntu1
 ```
 
-OR, Mininet can be installed from source by following the instructions on the [Mininet website](http://www.mininet.org)
+If the above fails, you may need to uninstall your current version of Mininet:
+```
+$ sudo apt-get purge mininet
+```
+
+You can also check if your package manager has Mininet version 2.1.0:
+```
+$ sudo apt-cache madison ^mininet
+```
+
+Alternatively, Mininet can be installed from source by following the instructions on the [Mininet website](http://www.mininet.org)
 
 ### Downloading MiniNExT
 
