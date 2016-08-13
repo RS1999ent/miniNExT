@@ -20,6 +20,7 @@ dictionary of hostname to the wiserprotocolconfig protobufs returns: A
 dictionary keyed on the host name and the WiserProtocolConfig as the value """
         return_dict = {}
         wiser_protocol_config = quagga_config_pb2.WiserProtocolConfig()
+        print 'IN CREATE WISER CONFIGS'
 
         #for each host in the protobuf hosts, make sure that it is not a
         #lookupservice node. Then for each entry in the topology where it is
@@ -28,6 +29,7 @@ dictionary keyed on the host name and the WiserProtocolConfig as the value """
         for host_proto in self.protobuf_hosts_:
             if host_proto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
                 continue
+            print 'HERE IN WISERCONFIG'
             node_link = quagga_config_pb2.NodeLink()
             hostname = host_proto.host_name
             local_addr = host_proto.ip
@@ -51,7 +53,8 @@ dictionary keyed on the host name and the WiserProtocolConfig as the value """
             if len(adjacent_links) >= 1:
                 wiser_protocol_config.topology.node_links.add().CopyFrom(node_link)
         for hostproto in self.protobuf_hosts_:
-            if host_proto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
+            print 'HERE at end', wiser_protocol_config.__str__()
+            if hostproto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
                 continue
             hostname = hostproto.host_name
             return_dict[hostname] = wiser_protocol_config

@@ -23,11 +23,17 @@ path_to_redis : "redis-server"
 
 <begin Topology>
 adjacency_list_entries {
-primary_node_name: "a1"
-adjacent_node_names: "b1"
+    primary_node_name: "a1"
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 10
+    }
 }
 adjacency_list_entries {
-primary_node_name: "b1"
-adjacent_node_names: "a1"
+    primary_node_name: "b1"
+    links{
+        adjacent_node_name: "a1"
+        link_cost: 10
+    }
 }
 <end Topology>
