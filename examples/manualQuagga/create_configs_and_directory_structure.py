@@ -11,7 +11,6 @@ These methods have no unittest currently because of its interaction with the
 file system.
 
 Needs to be ran in sudo mode because permissions on files are changed
-
 """
 
 daemons_config = """

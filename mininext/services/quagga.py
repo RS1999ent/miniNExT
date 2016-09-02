@@ -17,7 +17,6 @@ class QuaggaService(Service):
         Args:
             name (str): Service name (derived class may wish to override)
             params: Arbitrary length list of global properties for this service
-
         """
 
         # Verify that Quagga is installed"

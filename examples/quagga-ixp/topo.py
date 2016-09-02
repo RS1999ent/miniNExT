@@ -70,6 +70,7 @@ class QuaggaTopo(Topo):
             # Configure and setup the Quagga service for this node
             quaggaSvcConfig = \
                 {'quaggaConfigPath': quaggaBaseConfigPath + host.name}
+            print quaggaSvcConfig
             self.addNodeService(node=host.name, service=quaggaSvc,
                                 nodeConfig=quaggaSvcConfig)
 

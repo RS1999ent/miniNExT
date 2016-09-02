@@ -98,7 +98,7 @@ def StartUpRedis(host_protos):
     for host_proto in host_protos:
         if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE')):
             lookupservice_host_name = host_proto.host_name
-            redis_path = host_proto.path_to_redis
+            redis_path = host_proto.path_to_executable
             break
 
     #run mx <host_name> <path_to_redis> commandline

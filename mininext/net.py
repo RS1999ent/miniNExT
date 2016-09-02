@@ -23,6 +23,7 @@ class MiniNExT(Mininet):
 
         info('*** Starting host services\n')
         for host in self.hosts:
+            print "MiniNext::configHosts - host: ", host
             returnCodes = host.autoStartServices()
             if returnCodes:
                 # print detailed information on the started services

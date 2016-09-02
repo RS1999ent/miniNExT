@@ -99,6 +99,7 @@ class Service(ParamContainer):
                             % (self.name))
 
         # attempt to start the service
+        print 'Service::start - startCmd: ', startCmd
         _, err, ret = node.pexec(startCmd)
         if ret != 0 and self.getNodeParam(
                 node,
