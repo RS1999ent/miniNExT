@@ -4,7 +4,7 @@ host_name: "a1"
 ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
 as_num: 100
-path_to_executable :"/home/david/repos/quagga_evolvabilty/quagga-0.99.24.1/bgpd/bgpd"
+path_to_executable :"/home/david/repos/modified_quagga_evolvability/quagga-0.99.24.1/bgpd/bgpd"
 <end Host>
 
 <begin Host>
@@ -14,6 +14,15 @@ ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
 as_num: 101
 path_to_executable :"/home/david/repos/quagga_evolvabilty/quagga-0.99.24.1/bgpd/bgpd"
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "c1"
+ip: "172.0.3.1"
+lo_ip: "10.0.3.1"
+as_num: 102
+path_to_executable :"/home/david/repos/modified_quagga_evolvability/quagga-0.99.24.1/bgpd/bgpd"
 <end Host>
 
 <begin Host>
@@ -35,6 +44,17 @@ adjacency_list_entries {
     primary_node_name: "b1"
     links{
         adjacent_node_name: "a1"
+        link_cost: 10
+    }
+    links{
+        adjacent_node_name: "c1"
+        link_cost: 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "c1"
+    links{
+        adjacent_node_name: "b1"
         link_cost: 10
     }
 }
