@@ -113,7 +113,8 @@ router bgp 101
         self.assertEquals(result_configs_list['b1'], kCorrectOutputHost2)
 
 
-    def testCreateBgpdConfigs_GivenTwoHostWithOneOfThemBeingATypeLookUpService_OneStringConfigReturned(self):
+    # changed so that a lookup service gerenates a bgpd config
+    def testCreateBgpdConfigs_GivenTwoHostWithOneOfThemBeingATypeLookUpService_TwoStringConfigReturned(self):
         kCorrectOutputHost1 = """! path logfile for this daemon (BGPD)
 log file /var/log/quagga/bgpd.log
 
@@ -127,6 +128,19 @@ router bgp 100
  
  ! the network this router will advertise
  network 10.10.1.1/24"""
+        kCorrectOutputHost2 = """! path logfile for this daemon (BGPD)
+log file /var/log/quagga/bgpd.log
+
+! the password to use for telnet authentication
+password bgpuser
+
+! this routers AS number and BGP ID
+router bgp 101
+ bgp router-id 192.168.1.2
+ 
+ 
+ ! the network this router will advertise
+ network 10.10.1.2/24"""
 
 
         kHost1 = """
@@ -153,7 +167,8 @@ router bgp 100
 
         result_configs_list = self.generate_quagga_configs_.CreateBgpdConfigs()
         self.assertEquals(result_configs_list['a1'], kCorrectOutputHost1)
-        self.assertEquals(len(result_configs_list), 1)
+        self.assertEquals(result_configs_list['b1'], kCorrectOutputHost2)
+        self.assertEquals(len(result_configs_list), 2)
 
 
     def testCreateBgpdConfigs_GivenTwoHostWithTopoConnectingThem_ConfigsCorrect(self):

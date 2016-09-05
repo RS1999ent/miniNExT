@@ -42,8 +42,8 @@ class GenerateQuaggaConfigs():
         # for each host proto in hosts, it should generate configs only if it
         # not hosttype lookupservice
         for host_proto in self.protobuf_Hosts_:
-            if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE')):
-                continue
+            # if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE')):
+            #     continue
             template_variable_dict = {}
             template_variable_dict['asn'] = host_proto.as_num
             template_variable_dict['ip'] = host_proto.ip

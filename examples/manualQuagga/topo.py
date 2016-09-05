@@ -39,10 +39,10 @@ class QuaggaTopo(Topo):
         ixpfabric = self.addSwitch('fabric-sw1')
 
         for host_proto in host_protos:
-            if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE')):
-                self.InitializeLookUpServiceNode(ixpfabric, host_proto, quaggaBaseConfigPath)
-            if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_QUAGGA')):
-                self.InitializeQuaggaServiceNode(ixpfabric, host_proto, quaggaBaseConfigPath)
+            # if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE')):
+            #     self.InitializeLookUpServiceNode(ixpfabric, host_proto, quaggaBaseConfigPath)
+            # if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_QUAGGA')):
+            self.InitializeQuaggaServiceNode(ixpfabric, host_proto, quaggaBaseConfigPath)
 
 # private methods below here
 
