@@ -22,7 +22,8 @@ class QuaggaTopo(Topo):
     def __init__(self, host_protos):
         """ Initialize a Quagga topology with 5 routers, configure their IP
            addresses, loop back interfaces, and paths to their private
-           configuration directories. """
+           configuration directories.
+        """
         Topo.__init__(self)
         # Directory where this file / script is located"
         selfPath = os.path.dirname(
@@ -62,7 +63,7 @@ class QuaggaTopo(Topo):
         print lookupservice_container
         if host_proto.HasField('lo_ip'):
             # Add a loopback interface with an IP in router's announced range
-            loip = str(host_proto.lo_ip)
+            loip = str(host_proto.lo_ip) + '/24'
             self.addNodeLoopbackIntf(node=host_proto.host_name, ip=loip)
 
         # Configure and setup the Quagga service for this node
@@ -92,7 +93,8 @@ class QuaggaTopo(Topo):
         print quagga_container
         if host_proto.HasField('lo_ip'):
             # Add a loopback interface with an IP in router's announced range
-            loip = str(host_proto.lo_ip)
+            loip = str(host_proto.lo_ip) + '/24'
+            print "loopbackip is: ", loip
             self.addNodeLoopbackIntf(node=host_proto.host_name, ip=loip)
 
         # Configure and setup the Quagga service for this node

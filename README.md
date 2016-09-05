@@ -32,10 +32,12 @@ host_name: "b1"
 ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
 as_num: 101
+path_to_executable: ".../bgpd"
 <end Host>
 
 Defines the protobuf text format for a 'Host' message type and will be parsed
-into a host protobuf message.
+into a host protobuf message. 'path_to_executable' is optional and defines a
+specific bgpd executable to be run.
 
 Topology config example:
 <begin Topology>
@@ -68,10 +70,10 @@ An example of defining a redis host is:
 host_type : HT_LOOKUPSERVICE
 host_name: "l1"
 ip: "172.1.1.1"
-path_to_redis : "redis-server"
+path_to_executable : "redis-server"
 <end Host>
 
-'path_to_redis' is the command that will start redis-server relative from root.
+'path_to_executable' is the command that will start redis-server relative from root.
 The ip should be the wellknown ip that is defined in quagga.
 
 Each message specification is defined by the protobuf, QuaggaTopo.proto. See
