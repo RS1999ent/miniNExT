@@ -34,7 +34,9 @@ as_num: 103
 host_type : HT_LOOKUPSERVICE
 host_name: "l1"
 ip: "172.0.5.1"
-path_to_bgpd_executable : "redis-server"
+lo_ip: "10.0.5.1"
+as_num: 104
+path_to_redis_executable : "redis-server"
 <end Host>
 
 <begin Topology>

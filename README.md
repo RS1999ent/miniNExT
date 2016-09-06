@@ -32,12 +32,12 @@ host_name: "b1"
 ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
 as_num: 101
-path_to_executable: ".../bgpd"
+path_to_initd: ".../quagga/initd_script"
 <end Host>
 
 Defines the protobuf text format for a 'Host' message type and will be parsed
-into a host protobuf message. 'path_to_executable' is optional and defines a
-specific bgpd executable to be run.
+into a host protobuf message. 'path_to_initd' is optional and specifies a
+particular initd script to be run.
 
 Topology config example:
 <begin Topology>

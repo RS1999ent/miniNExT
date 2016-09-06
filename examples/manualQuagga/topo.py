@@ -101,13 +101,13 @@ class QuaggaTopo(Topo):
         quaggaSvcConfig = \
             {'quaggaConfigPath': config_path + hostname}
         print quaggaSvcConfig
-        if host_proto.HasField('path_to_bgpd_executable'):
-            path_to_bgpd = str(host_proto.path_to_bgpd_executable)
-            print "Path to bgpd: ", path_to_bgpd
+        if host_proto.HasField('path_to_initd'):
+            path_to_initd = str(host_proto.path_to_initd)
+            print "Path to initd: ", path_to_initd
             self.addNodeService(
                 node=hostname,
                 service=ManualQuaggaService(
-                    path_to_bgpd, autoStop=False),
+                    path_to_initd, autoStop=False),
                 nodeConfig=quaggaSvcConfig)
         else:
             self.addNodeService(

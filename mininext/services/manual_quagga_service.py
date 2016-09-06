@@ -10,18 +10,18 @@ from mininext.service import Service
 class ManualQuaggaService(Service):
 
     "Manages Quagga Software Router Service"
-    bgpd_path_ = ""
+    initd_path_ = ""
 
-    def __init__(self, bgpd_path, name="Quagga", **params):
+    def __init__(self, initd_path, name="Quagga", **params):
         """Initializes a QuaggaService instance with a set of global parameters
 
         Args:
             name (str): Service name (derived class may wish to override)
-            bgpd_path: the path to the specific bgpd executable we want to run
+            initd_path: the path to the specific initd script we want to run
             params: Arbitrary length list of global properties for this service
         """
 
-        self.bgpd_path_ = bgpd_path
+        self.initd_path_ = initd_path
 
         # Call service initialization (will set defaultGlobalParams)
         Service.__init__(self, name=name, **params)
@@ -63,7 +63,7 @@ class ManualQuaggaService(Service):
 
     def getDefaultGlobalParams(self):
         "Returns the default parameters for this service"
-        defaults = {'startCmd': self.bgpd_path_ + 'quagga start',
+        defaults = {'startCmd': self.initd_path_  + ' start',
                     # 'stopCmd': '/etc/init.d/quagga stop',
                     'autoStart': True,
                     'autoStop': True,

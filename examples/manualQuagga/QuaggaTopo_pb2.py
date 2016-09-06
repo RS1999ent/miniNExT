@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='QuaggaTopo.proto',
   package='',
-  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\xa5\x01\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x1f\n\x17path_to_bgpd_executable\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry*?\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02')
+  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\x9b\x01\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_initd\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry*?\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -44,8 +44,8 @@ _HOSTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=379,
-  serialized_end=442,
+  serialized_start=369,
+  serialized_end=432,
 )
 _sym_db.RegisterEnumDescriptor(_HOSTTYPE)
 
@@ -99,7 +99,7 @@ _HOST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='path_to_bgpd_executable', full_name='Host.path_to_bgpd_executable', index=5,
+      name='path_to_initd', full_name='Host.path_to_initd', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -124,7 +124,7 @@ _HOST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=21,
-  serialized_end=186,
+  serialized_end=176,
 )
 
 
@@ -160,8 +160,8 @@ _LINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=188,
-  serialized_end=241,
+  serialized_start=178,
+  serialized_end=231,
 )
 
 
@@ -197,8 +197,8 @@ _ADJACENCYLISTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=243,
-  serialized_end=312,
+  serialized_start=233,
+  serialized_end=302,
 )
 
 
@@ -227,8 +227,8 @@ _TOPOLOGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=314,
-  serialized_end=377,
+  serialized_start=304,
+  serialized_end=367,
 )
 
 _HOST.fields_by_name['host_type'].enum_type = _HOSTTYPE

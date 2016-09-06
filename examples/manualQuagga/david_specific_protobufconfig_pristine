@@ -4,7 +4,7 @@ host_name: "a1"
 ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
 as_num: 100
-path_to_bgpd_executable :"/home/david/repos/modified_quagga_evolvability/quagga-0.99.24.1/bgpd/bgpd"
+path_to_initd :"/home/david/repos/modified_quagga_evolvability/quagga-0.99.24.1/bgpd/bgpd"
 <end Host>
 
 <begin Host>
