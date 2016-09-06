@@ -20,9 +20,11 @@ message Host
   optional string ip = 3;
   optional string lo_ip = 4;
   optional uint32 as_num = 5;
-  // path to executable to be run (used for starting a redis server or modified
+  // path to executable to be run (used for starting modified
   // or unmodified quaggaa)
-  optional string path_to_executable = 6; 
+  optional string path_to_bgpd_executable = 6; 
+  // path to executable for redis (can also be a command to start redis)
+  optional string path_to_redis_executable = 7; 
 }
 
 // Defines the properties of a link. This is used in Adjacency list entry to

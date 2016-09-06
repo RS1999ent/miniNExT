@@ -4,6 +4,7 @@ host_name: "a1"
 ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
 as_num: 100
+path_to_bgpd_executable :"/home/david/repos/modified_quagga_evolvability/quagga-0.99.24.1/bgpd/bgpd"
 <end Host>
 
 <begin Host>
@@ -34,7 +35,9 @@ as_num: 103
 host_type : HT_LOOKUPSERVICE
 host_name: "l1"
 ip: "172.0.5.1"
-path_to_bgpd_executable : "redis-server"
+lo_ip: "10.0.5.1"
+as_num: 104
+path_to_redis_executable :"/home/david/repos/kvstores/redis/src/redis-server"
 <end Host>
 
 <begin Topology>
@@ -42,6 +45,10 @@ adjacency_list_entries {
     primary_node_name: "a1"
     links{
         adjacent_node_name: "b1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "l1"
         link_cost : 10
     }
 }
@@ -55,8 +62,11 @@ adjacency_list_entries {
         adjacent_node_name: "c1"
         link_cost: 10
     }
+    links{
+        adjacent_node_name: "l1"
+        link_cost : 10
+    }
 }
-
 adjacency_list_entries {
     primary_node_name: "c1"
     links{
@@ -67,6 +77,10 @@ adjacency_list_entries {
         adjacent_node_name: "d1"
         link_cost: 10
     }
+    links{
+        adjacent_node_name: "l1"
+        link_cost : 10
+    }
 }
 
 adjacency_list_entries {
@@ -74,6 +88,29 @@ adjacency_list_entries {
     links{
         adjacent_node_name: "c1"
         link_cost: 10
+    }
+    links{
+        adjacent_node_name: "l1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "l1"
+    links{
+        adjacent_node_name: "a1"
+        link_cost: 10
+    }
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "c1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "d1"
+        link_cost : 10
     }
 }
 <end Topology>

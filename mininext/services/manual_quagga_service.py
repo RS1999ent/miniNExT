@@ -63,7 +63,7 @@ class ManualQuaggaService(Service):
 
     def getDefaultGlobalParams(self):
         "Returns the default parameters for this service"
-        defaults = {'startCmd': self.bgpd_path_ + ' --daemon',
+        defaults = {'startCmd': self.bgpd_path_ + 'quagga start',
                     # 'stopCmd': '/etc/init.d/quagga stop',
                     'autoStart': True,
                     'autoStop': True,

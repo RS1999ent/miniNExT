@@ -32,6 +32,7 @@ import create_configs_and_directory_structure
 import argparse
 
 net = None
+kMxLocation = 'utils/mx'
 
 def InitializeArgParser():
     """ Function where you should add additional command line arguments.
@@ -98,11 +99,12 @@ def StartUpRedis(host_protos):
     for host_proto in host_protos:
         if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_LOOKUPSERVICE')):
             lookupservice_host_name = host_proto.host_name
-            redis_path = host_proto.path_to_executable
+            redis_path = host_proto.path_to_redis_executable
             break
 
     #run mx <host_name> <path_to_redis> commandline
-    command = './mx ' + lookupservice_host_name + ' ' + redis_path
+    command = './' + kMxLocation + ' ' + lookupservice_host_name + ' ' + redis_path
+    print command
     p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     # print 'starting redis command'
     # print p.stdout.readlines()
