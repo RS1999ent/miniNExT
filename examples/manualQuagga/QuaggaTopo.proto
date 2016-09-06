@@ -39,7 +39,7 @@ message Link{
 // has).
 message AdjacencyListEntry{
   optional string primary_node_name = 1;
-repeated Link links = 2;
+  repeated Link links = 2;
   // repeated string adjacent_node_names = 2;
 }
 

@@ -46,7 +46,7 @@ def InitializeArgParser():
                         help='File where the general configuration for the program is stored as specified by QuaggaTopo.proto')
     return parser.parse_args()
 
-def startNetwork(host_protos):
+def startNetwork(host_protos, topology):
     """instantiates a topo, then starts the network and prints debug information
     arguments:
     host_protos: used by QuaggaTopo to instantiate the correct hosts
@@ -54,7 +54,8 @@ def startNetwork(host_protos):
 
 
     info('** Creating Quagga network topology\n')
-    topo = QuaggaTopo(host_protos)
+    topo = QuaggaTopo()
+    topo.CreateTopology(host_protos, topology)
     # topo.CreateMininetQuaggaTopo(host_protos)
 
     info('** Starting the network\n')
@@ -155,4 +156,4 @@ if __name__ == '__main__':
     create_configs_and_directory_structure.WriteConfigs(hostname_to_bgpdconfig, hostname_to_wiserconfig)
 
     #start up mininet
-    startNetwork(host_protos)
+    startNetwork(host_protos, topology_protos[0])
