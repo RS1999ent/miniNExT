@@ -57,7 +57,12 @@ dictionary keyed on the host name and the WiserProtocolConfig as the value """
             if hostproto.host_type != QuaggaTopo_pb2.HostType.Value('HT_QUAGGA'):
                 continue
             hostname = hostproto.host_name
-            return_dict[hostname] = wiser_protocol_config
+            #UGLY HACKS HERE TODO: make better
+            general_config = quagga_config_pb2.Configuration()
+            general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_WISER')
+            general_config.wiser_protocol_config.CopyFrom(wiser_protocol_config)
+            # return_dict[hostname] = wiser_protocol_config
+            return_dict[hostname] = general_config
         return return_dict
 
     # creates a quagga_config::NodeProperty from a hostname and interfaceip

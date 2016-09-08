@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -18,10 +19,35 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='quagga_config.proto',
   package='',
-  serialized_pb=_b('\n\x13quagga_config.proto\"D\n\rConfiguration\x12\x33\n\x15wiser_protocol_config\x18\x01 \x01(\x0b\x32\x14.WiserProtocolConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t')
+  serialized_pb=_b('\n\x13quagga_config.proto\"j\n\rConfiguration\x12$\n\rprotocol_type\x18\x01 \x01(\x0e\x32\r.ProtocolType\x12\x33\n\x15wiser_protocol_config\x18\x02 \x01(\x0b\x32\x14.WiserProtocolConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t*,\n\x0cProtocolType\x12\x0e\n\nPT_UNKNOWN\x10\x00\x12\x0c\n\x08PT_WISER\x10\x01')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
+_PROTOCOLTYPE = _descriptor.EnumDescriptor(
+  name='ProtocolType',
+  full_name='ProtocolType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PT_UNKNOWN', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PT_WISER', index=1, number=1,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=419,
+  serialized_end=463,
+)
+_sym_db.RegisterEnumDescriptor(_PROTOCOLTYPE)
+
+ProtocolType = enum_type_wrapper.EnumTypeWrapper(_PROTOCOLTYPE)
+PT_UNKNOWN = 0
+PT_WISER = 1
 
 
 
@@ -33,8 +59,15 @@ _CONFIGURATION = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='wiser_protocol_config', full_name='Configuration.wiser_protocol_config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
+      name='protocol_type', full_name='Configuration.protocol_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='wiser_protocol_config', full_name='Configuration.wiser_protocol_config', index=1,
+      number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -51,7 +84,7 @@ _CONFIGURATION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=23,
-  serialized_end=91,
+  serialized_end=129,
 )
 
 
@@ -80,8 +113,8 @@ _WISERPROTOCOLCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=143,
+  serialized_start=131,
+  serialized_end=181,
 )
 
 
@@ -110,8 +143,8 @@ _TOPOLOGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=145,
-  serialized_end=186,
+  serialized_start=183,
+  serialized_end=224,
 )
 
 
@@ -147,8 +180,8 @@ _NODELINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=188,
-  serialized_end=257,
+  serialized_start=226,
+  serialized_end=295,
 )
 
 
@@ -184,8 +217,8 @@ _LINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=259,
-  serialized_end=322,
+  serialized_start=297,
+  serialized_end=360,
 )
 
 
@@ -221,10 +254,11 @@ _NODEPROPERTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=324,
-  serialized_end=379,
+  serialized_start=362,
+  serialized_end=417,
 )
 
+_CONFIGURATION.fields_by_name['protocol_type'].enum_type = _PROTOCOLTYPE
 _CONFIGURATION.fields_by_name['wiser_protocol_config'].message_type = _WISERPROTOCOLCONFIG
 _WISERPROTOCOLCONFIG.fields_by_name['topology'].message_type = _TOPOLOGY
 _TOPOLOGY.fields_by_name['node_links'].message_type = _NODELINK
@@ -237,6 +271,7 @@ DESCRIPTOR.message_types_by_name['Topology'] = _TOPOLOGY
 DESCRIPTOR.message_types_by_name['NodeLink'] = _NODELINK
 DESCRIPTOR.message_types_by_name['Link'] = _LINK
 DESCRIPTOR.message_types_by_name['NodeProperty'] = _NODEPROPERTY
+DESCRIPTOR.enum_types_by_name['ProtocolType'] = _PROTOCOLTYPE
 
 Configuration = _reflection.GeneratedProtocolMessageType('Configuration', (_message.Message,), dict(
   DESCRIPTOR = _CONFIGURATION,
