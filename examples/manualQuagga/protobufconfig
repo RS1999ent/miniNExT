@@ -4,6 +4,7 @@ host_name: "a1"
 ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
 as_num: 100
+path_to_initd : '/home/david/repos/wiser_branch_quagga_evolvabiltiy/quagga-0.99.24.1/quagga'
 <end Host>
 
 <begin Host>
@@ -23,6 +24,32 @@ as_num: 102
 <end Host>
 
 <begin Host>
+host_type : HT_QUAGGA
+host_name: "d1"
+ip: "172.0.4.1"
+lo_ip: "10.0.4.1"
+as_num: 103
+path_to_initd : '/home/david/repos/wiser_branch_quagga_evolvabiltiy/quagga-0.99.24.1/quagga'
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "e1"
+ip: "172.0.6.1"
+lo_ip: "10.0.6.1"
+as_num: 105
+path_to_initd : '/home/david/repos/wiser_branch_quagga_evolvabiltiy/quagga-0.99.24.1/quagga'
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "f1"
+ip: "172.0.7.1"
+lo_ip: "10.0.7.1"
+as_num: 106
+<end Host>
+
+<begin Host>
 host_type : HT_LOOKUPSERVICE
 host_name: "l1"
 ip: "172.0.5.1"
@@ -36,32 +63,73 @@ adjacency_list_entries {
     primary_node_name: "a1"
     links{
         adjacent_node_name: "b1"
-        link_cost : 1000
+        link_cost : 10
     }
     links{
         adjacent_node_name: "c1"
-        link_cost : 10
+        link_cost : 1000 
     }
 }
 adjacency_list_entries {
     primary_node_name: "b1"
     links{
         adjacent_node_name: "a1"
-        link_cost: 1000
+        link_cost: 10
     }
     links{
-        adjacent_node_name: "c1"
+        adjacent_node_name: "d1"
         link_cost : 10
     }
 }
 adjacency_list_entries {
     primary_node_name: "c1"
     links{
+        adjacent_node_name: "a1"
+        link_cost : 1000 
+    }
+    links{
+        adjacent_node_name: "d1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "f1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "d1"
+    links{
         adjacent_node_name: "b1"
         link_cost : 10
     }
     links{
-        adjacent_node_name: "a1"
+        adjacent_node_name: "c1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "e1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "e1"
+    links{
+        adjacent_node_name: "d1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "f1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "f1"
+    links{
+        adjacent_node_name: "e1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "c1"
         link_cost : 10
     }
 }
