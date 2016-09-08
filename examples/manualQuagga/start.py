@@ -121,6 +121,9 @@ def stopNetwork():
     create_configs_and_directory_structure.DeleteConfigs()
 
 if __name__ == '__main__':
+    # clear logs
+    command = "sudo ./utils/clear_mininext_host_logs.sh"
+    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
     #parse commandline arguments
     args = InitializeArgParser()
