@@ -15,6 +15,14 @@ as_num: 101
 <end Host>
 
 <begin Host>
+host_type : HT_QUAGGA
+host_name: "c1"
+ip: "172.0.3.1"
+lo_ip: "10.0.3.1"
+as_num: 102
+<end Host>
+
+<begin Host>
 host_type : HT_LOOKUPSERVICE
 host_name: "l1"
 ip: "172.0.5.1"
@@ -28,6 +36,10 @@ adjacency_list_entries {
     primary_node_name: "a1"
     links{
         adjacent_node_name: "b1"
+        link_cost : 1000
+    }
+    links{
+        adjacent_node_name: "c1"
         link_cost : 10
     }
 }
@@ -35,7 +47,22 @@ adjacency_list_entries {
     primary_node_name: "b1"
     links{
         adjacent_node_name: "a1"
-        link_cost: 10
+        link_cost: 1000
+    }
+    links{
+        adjacent_node_name: "c1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "c1"
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "a1"
+        link_cost : 10
     }
 }
 
