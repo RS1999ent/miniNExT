@@ -13,7 +13,7 @@ host_name: "b1"
 ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
 as_num: 101
-island_id : 2
+island_id : 1
 <end Host>
 
 <begin Host>
@@ -22,7 +22,7 @@ host_name: "c1"
 ip: "172.0.3.1"
 lo_ip: "10.0.3.1"
 as_num: 102
-island_id : 2
+island_id : 1
 <end Host>
 
 <begin Host>
@@ -31,7 +31,25 @@ host_name: "d1"
 ip: "172.0.4.1"
 lo_ip: "10.0.4.1"
 as_num: 103
-island_id : 3
+island_id : 1
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "e1"
+ip: "172.0.6.1"
+lo_ip: "10.0.6.1"
+as_num: 105
+island_id : 1
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "f1"
+ip: "172.0.7.1"
+lo_ip: "10.0.7.1"
+as_num: 106
+island_id : 1
 <end Host>
 
 <begin Host>
@@ -51,6 +69,10 @@ adjacency_list_entries {
         adjacent_node_name: "b1"
         link_cost : 10
     }
+    links{
+        adjacent_node_name: "c1"
+        link_cost : 1000 
+    }
 }
 adjacency_list_entries {
     primary_node_name: "b1"
@@ -59,26 +81,61 @@ adjacency_list_entries {
         link_cost: 10
     }
     links{
-        adjacent_node_name: "c1"
+        adjacent_node_name: "d1"
         link_cost : 10
     }
 }
 adjacency_list_entries {
     primary_node_name: "c1"
     links{
-        adjacent_node_name: "b1"
-        link_cost : 10
+        adjacent_node_name: "a1"
+        link_cost : 1000 
     }
     links{
         adjacent_node_name: "d1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "f1"
         link_cost : 10
     }
 }
 adjacency_list_entries {
     primary_node_name: "d1"
     links{
+        adjacent_node_name: "b1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "c1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "e1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "e1"
+    links{
+        adjacent_node_name: "d1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "f1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "f1"
+    links{
+        adjacent_node_name: "e1"
+        link_cost : 10
+    }
+    links{
         adjacent_node_name: "c1"
         link_cost : 10
     }
 }
+
 <end Topology>

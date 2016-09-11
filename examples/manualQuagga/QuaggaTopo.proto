@@ -25,6 +25,7 @@ message Host
   optional string path_to_initd = 6; 
   // path to executable for redis (can also be a command to start redis)
   optional string path_to_redis_executable = 7; 
+  optional uint32 island_id = 8;
 }
 
 // Defines the properties of a link. This is used in Adjacency list entry to

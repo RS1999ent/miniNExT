@@ -65,7 +65,7 @@ zebra_conf = """
 """
 
 
-def WriteConfigs(host_name_to_bgpdconfig_dict, host_name_to_wiserconfig_dict):
+def WriteConfigs(host_name_to_bgpdconfig_dict, host_name_to_generalconfig_dict):
     """Function that writes the bgpd configs into the the directory structure of
     the following format:
     config/<host_name>/bgpd.conf
@@ -92,11 +92,11 @@ def WriteConfigs(host_name_to_bgpdconfig_dict, host_name_to_wiserconfig_dict):
         OpenCreateWrite(path_to_created_directoy + 'debian.conf', debian_conf )
         OpenCreateWrite(path_to_created_directoy + 'zebra.conf', zebra_conf)
         OpenCreateWrite(path_to_created_directoy + 'bgpd.conf', bgpdconfig)
-    for host_name, wise_protocol_config_proto in host_name_to_wiserconfig_dict.iteritems():
+    for host_name, general_protocol_config_proto in host_name_to_generalconfig_dict.iteritems():
         if not os.path.exists('configs/' + host_name):
             os.makedirs('configs/' + host_name)
         path_to_created_directoy = 'configs/' + host_name + '/'
-        OpenCreateWrite(path_to_created_directoy + 'protobuf_config', wise_protocol_config_proto.__str__())
+        OpenCreateWrite(path_to_created_directoy + 'protobuf_config', general_protocol_config_proto.__str__())
 
 def DeleteConfigs():
     """deletes the created config directory tree. That is, will recursively delete

@@ -27,6 +27,7 @@ import QuaggaTopo_pb2
 from protobuf_config_parser import ProtobufConfigParser
 from generate_quagga_configs import GenerateQuaggaConfigs
 from generate_wiser_configs import GenerateWiserConfigs
+from generate_general_configs import CreateGeneralConfigs
 import jinja2
 import create_configs_and_directory_structure
 import argparse
@@ -149,13 +150,12 @@ if __name__ == '__main__':
     generate_quagga_configs = GenerateQuaggaConfigs(host_protos, topology_protos, jinja_env)
     hostname_to_bgpdconfig = generate_quagga_configs.CreateBgpdConfigs()
 
-    #handle generating wiser config
-    generate_wiser_configs = GenerateWiserConfigs(host_protos, topology_protos)
-    hostname_to_wiserconfig = generate_wiser_configs.CreateWiserConfigs()
-    print 'HOSTNAME TO WISERCONFIG', hostname_to_wiserconfig
+    #handle generating general config
+    hostname_to_generalconfig = CreateGeneralConfigs(host_protos, topology_protos[0])
+    print 'HOSTNAME TO GENERAL CONFIG', hostname_to_generalconfig
 
     # Write configs to file system
-    create_configs_and_directory_structure.WriteConfigs(hostname_to_bgpdconfig, hostname_to_wiserconfig)
+    create_configs_and_directory_structure.WriteConfigs(hostname_to_bgpdconfig, hostname_to_generalconfig)
 
     #start up mininet
     startNetwork(host_protos)
