@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='quagga_config.proto',
   package='',
-  serialized_pb=_b('\n\x13quagga_config.proto\"\x99\x01\n\rConfiguration\x12$\n\rprotocol_type\x18\x01 \x01(\x0e\x32\r.ProtocolType\x12\x11\n\tisland_id\x18\x02 \x01(\r\x12\x1a\n\x12island_member_ases\x18\x03 \x03(\r\x12\x33\n\x15wiser_protocol_config\x18\x04 \x01(\x0b\x32\x14.WiserProtocolConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t*,\n\x0cProtocolType\x12\x0e\n\nPT_UNKNOWN\x10\x00\x12\x0c\n\x08PT_WISER\x10\x01')
+  serialized_pb=_b('\n\x13quagga_config.proto\"\xc6\x01\n\rConfiguration\x12$\n\rprotocol_type\x18\x01 \x01(\x0e\x32\r.ProtocolType\x12\x11\n\tisland_id\x18\x02 \x01(\r\x12\x1a\n\x12island_member_ases\x18\x03 \x03(\r\x12\x33\n\x15wiser_protocol_config\x18\x04 \x01(\x0b\x32\x14.WiserProtocolConfig\x12+\n\x0epathlet_config\x18\x05 \x01(\x0b\x32\x13.PathletProtoConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t\"Q\n\x12PathletProtoConfig\x12\x1f\n\x17is_island_border_router\x18\x01 \x01(\r\x12\x1a\n\x12private_slash24_ip\x18\x02 \x01(\t*=\n\x0cProtocolType\x12\x0e\n\nPT_UNKNOWN\x10\x00\x12\x0c\n\x08PT_WISER\x10\x01\x12\x0f\n\x0bPT_PATHLETS\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -37,17 +37,22 @@ _PROTOCOLTYPE = _descriptor.EnumDescriptor(
       name='PT_WISER', index=1, number=1,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PT_PATHLETS', index=2, number=2,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=467,
-  serialized_end=511,
+  serialized_start=595,
+  serialized_end=656,
 )
 _sym_db.RegisterEnumDescriptor(_PROTOCOLTYPE)
 
 ProtocolType = enum_type_wrapper.EnumTypeWrapper(_PROTOCOLTYPE)
 PT_UNKNOWN = 0
 PT_WISER = 1
+PT_PATHLETS = 2
 
 
 
@@ -86,6 +91,13 @@ _CONFIGURATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='pathlet_config', full_name='Configuration.pathlet_config', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -98,7 +110,7 @@ _CONFIGURATION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=24,
-  serialized_end=177,
+  serialized_end=222,
 )
 
 
@@ -127,8 +139,8 @@ _WISERPROTOCOLCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=179,
-  serialized_end=229,
+  serialized_start=224,
+  serialized_end=274,
 )
 
 
@@ -157,8 +169,8 @@ _TOPOLOGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=231,
-  serialized_end=272,
+  serialized_start=276,
+  serialized_end=317,
 )
 
 
@@ -194,8 +206,8 @@ _NODELINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=274,
-  serialized_end=343,
+  serialized_start=319,
+  serialized_end=388,
 )
 
 
@@ -231,8 +243,8 @@ _LINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=345,
-  serialized_end=408,
+  serialized_start=390,
+  serialized_end=453,
 )
 
 
@@ -268,12 +280,50 @@ _NODEPROPERTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=410,
-  serialized_end=465,
+  serialized_start=455,
+  serialized_end=510,
+)
+
+
+_PATHLETPROTOCONFIG = _descriptor.Descriptor(
+  name='PathletProtoConfig',
+  full_name='PathletProtoConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='is_island_border_router', full_name='PathletProtoConfig.is_island_border_router', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='private_slash24_ip', full_name='PathletProtoConfig.private_slash24_ip', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=512,
+  serialized_end=593,
 )
 
 _CONFIGURATION.fields_by_name['protocol_type'].enum_type = _PROTOCOLTYPE
 _CONFIGURATION.fields_by_name['wiser_protocol_config'].message_type = _WISERPROTOCOLCONFIG
+_CONFIGURATION.fields_by_name['pathlet_config'].message_type = _PATHLETPROTOCONFIG
 _WISERPROTOCOLCONFIG.fields_by_name['topology'].message_type = _TOPOLOGY
 _TOPOLOGY.fields_by_name['node_links'].message_type = _NODELINK
 _NODELINK.fields_by_name['primary_node'].message_type = _NODEPROPERTY
@@ -285,6 +335,7 @@ DESCRIPTOR.message_types_by_name['Topology'] = _TOPOLOGY
 DESCRIPTOR.message_types_by_name['NodeLink'] = _NODELINK
 DESCRIPTOR.message_types_by_name['Link'] = _LINK
 DESCRIPTOR.message_types_by_name['NodeProperty'] = _NODEPROPERTY
+DESCRIPTOR.message_types_by_name['PathletProtoConfig'] = _PATHLETPROTOCONFIG
 DESCRIPTOR.enum_types_by_name['ProtocolType'] = _PROTOCOLTYPE
 
 Configuration = _reflection.GeneratedProtocolMessageType('Configuration', (_message.Message,), dict(
@@ -328,6 +379,13 @@ NodeProperty = _reflection.GeneratedProtocolMessageType('NodeProperty', (_messag
   # @@protoc_insertion_point(class_scope:NodeProperty)
   ))
 _sym_db.RegisterMessage(NodeProperty)
+
+PathletProtoConfig = _reflection.GeneratedProtocolMessageType('PathletProtoConfig', (_message.Message,), dict(
+  DESCRIPTOR = _PATHLETPROTOCONFIG,
+  __module__ = 'quagga_config_pb2'
+  # @@protoc_insertion_point(class_scope:PathletProtoConfig)
+  ))
+_sym_db.RegisterMessage(PathletProtoConfig)
 
 
 # @@protoc_insertion_point(module_scope)

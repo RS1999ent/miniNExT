@@ -15,6 +15,7 @@ class GenerateGeneralConfigsTest(unittest.TestCase):
             lo_ip: '10.0.1.1'
             as_num: 100
             island_id : 1
+            protocol: 'wiser'
             """
         ]
         kTopology = """"""
@@ -63,6 +64,7 @@ class GenerateGeneralConfigsTest(unittest.TestCase):
             lo_ip: '10.0.1.1'
             as_num: 100
             island_id : 1
+            protocol: 'wiser'
             """,
             """
             host_type : HT_QUAGGA
@@ -71,6 +73,7 @@ class GenerateGeneralConfigsTest(unittest.TestCase):
             lo_ip: '10.0.1.1'
             as_num: 200
             island_id : 1
+            protocol: 'wiser'
             """
         ]
         kTopology = """"""

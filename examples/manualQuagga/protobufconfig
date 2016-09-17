@@ -5,6 +5,7 @@ ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
 as_num: 100
 island_id : 1
+protocol: 'wiser'
 <end Host>
 
 <begin Host>
@@ -14,6 +15,7 @@ ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
 as_num: 101
 island_id : 2
+protocol: 'wiser'
 <end Host>
 
 <begin Host>
@@ -23,6 +25,7 @@ ip: "172.0.3.1"
 lo_ip: "10.0.3.1"
 as_num: 102
 island_id : 2
+protocol: 'wiser'
 <end Host>
 
 <begin Host>
@@ -31,7 +34,8 @@ host_name: "d1"
 ip: "172.0.4.1"
 lo_ip: "10.0.4.1"
 as_num: 103
-island_id : 3
+island_id : 2
+protocol: 'wiser'
 <end Host>
 
 <begin Host>
@@ -41,7 +45,7 @@ ip: "172.0.5.1"
 lo_ip: "10.0.5.1"
 as_num: 104
 path_to_redis_executable : "redis-server"
-island_id : 1
+island_id : 2
 <end Host>
 
 <begin Topology>
@@ -49,36 +53,36 @@ adjacency_list_entries {
     primary_node_name: "a1"
     links{
         adjacent_node_name: "b1"
-        link_cost : 10
+        link_cost : 30
     }
 }
 adjacency_list_entries {
     primary_node_name: "b1"
     links{
         adjacent_node_name: "a1"
-        link_cost: 10
+        link_cost: 30
     }
     links{
         adjacent_node_name: "c1"
-        link_cost : 10
+        link_cost : 100
     }
 }
 adjacency_list_entries {
     primary_node_name: "c1"
     links{
         adjacent_node_name: "b1"
-        link_cost : 10
+        link_cost : 100
     }
     links{
         adjacent_node_name: "d1"
-        link_cost : 10
+        link_cost : 20
     }
 }
 adjacency_list_entries {
     primary_node_name: "d1"
     links{
         adjacent_node_name: "c1"
-        link_cost : 10
+        link_cost : 20
     }
 }
 <end Topology>

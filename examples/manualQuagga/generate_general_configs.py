@@ -1,5 +1,6 @@
 import QuaggaTopo_pb2
 import quagga_config_pb2
+import create_pathlets_config
 from  generate_wiser_configs import GenerateWiserConfigs
 
 
@@ -50,6 +51,8 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
     topo_list.append(protobuf_topology)
     generate_wiser_configs = GenerateWiserConfigs(protobuf_hosts, topo_list)
     host_to_wiserconfigs = generate_wiser_configs.CreateWiserConfigs()
+    # generate pathlet ocnfigs
+    host_to_pathletconfigs = create_pathlets_config.CreatePathletsConfig(protobuf_hosts)
 
     # for each host, create a general config Configuration object from the
     # host_to_wiserconfigs and 'island_ids_to_islandmembers'.
@@ -58,6 +61,8 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
         hostname = host.host_name
         if hostname in host_to_wiserconfigs:
             general_config.wiser_protocol_config.CopyFrom(host_to_wiserconfigs[hostname])
+        if hostname in host_to_pathletconfigs:
+            general_config.pathlet_config.CopyFrom(host_to_pathletconfigs[hostname])
         # for each as that is a member of this island id, if the member does
         # not denote this host, then add it to the general_config
         # island_members
@@ -67,7 +72,11 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
             if member_as != host.as_num:
                 general_config.island_member_ases.append(member_as)
         #make protocol wiser for now TODO 
-        general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_WISER')
+        if host.protocol == 'wiser':
+            general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_WISER')
+        else:
+            general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_PATHLETS')
+
         return_dict[hostname] = general_config
         print general_config
 

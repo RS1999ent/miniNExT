@@ -18,7 +18,7 @@ message Host
   optional HostType host_type = 1;
   optional string host_name = 2;
   optional string ip = 3;
-  optional string lo_ip = 4;
+  optional string lo_ip = 4; 
   optional uint32 as_num = 5;
   // Path to custom init.d. Will be invoked if there is a specific quagga that
   // we want to run.
@@ -26,6 +26,10 @@ message Host
   // path to executable for redis (can also be a command to start redis)
   optional string path_to_redis_executable = 7; 
   optional uint32 island_id = 8;
+  // hold the private /24 ip to announce pathlets from.
+  optional string private_pathlet_ip = 9;
+  optional string protocol = 10;
+  optional uint32 is_border_router = 11; // 1 if border router, 0 if not
 }
 
 // Defines the properties of a link. This is used in Adjacency list entry to
