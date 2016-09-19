@@ -74,8 +74,13 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
         #make protocol wiser for now TODO 
         if host.protocol == 'wiser':
             general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_WISER')
-        else:
+        elif host.protocol == 'pathlets':
             general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_PATHLETS')
+        elif host.protocol == 'baseline_sleeper':
+            general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_BASELINE_SLEEPER')
+        else:
+            general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_BASELINE')
+
 
         return_dict[hostname] = general_config
         print general_config

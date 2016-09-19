@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='quagga_config.proto',
   package='',
-  serialized_pb=_b('\n\x13quagga_config.proto\"\xc6\x01\n\rConfiguration\x12$\n\rprotocol_type\x18\x01 \x01(\x0e\x32\r.ProtocolType\x12\x11\n\tisland_id\x18\x02 \x01(\r\x12\x1a\n\x12island_member_ases\x18\x03 \x03(\r\x12\x33\n\x15wiser_protocol_config\x18\x04 \x01(\x0b\x32\x14.WiserProtocolConfig\x12+\n\x0epathlet_config\x18\x05 \x01(\x0b\x32\x13.PathletProtoConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t\"Q\n\x12PathletProtoConfig\x12\x1f\n\x17is_island_border_router\x18\x01 \x01(\r\x12\x1a\n\x12private_slash24_ip\x18\x02 \x01(\t*=\n\x0cProtocolType\x12\x0e\n\nPT_UNKNOWN\x10\x00\x12\x0c\n\x08PT_WISER\x10\x01\x12\x0f\n\x0bPT_PATHLETS\x10\x02')
+  serialized_pb=_b('\n\x13quagga_config.proto\"\xc6\x01\n\rConfiguration\x12$\n\rprotocol_type\x18\x01 \x01(\x0e\x32\r.ProtocolType\x12\x11\n\tisland_id\x18\x02 \x01(\r\x12\x1a\n\x12island_member_ases\x18\x03 \x03(\r\x12\x33\n\x15wiser_protocol_config\x18\x04 \x01(\x0b\x32\x14.WiserProtocolConfig\x12+\n\x0epathlet_config\x18\x05 \x01(\x0b\x32\x13.PathletProtoConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t\"Q\n\x12PathletProtoConfig\x12\x1f\n\x17is_island_border_router\x18\x01 \x01(\r\x12\x1a\n\x12private_slash24_ip\x18\x02 \x01(\t*g\n\x0cProtocolType\x12\x0e\n\nPT_UNKNOWN\x10\x00\x12\x0c\n\x08PT_WISER\x10\x01\x12\x0f\n\x0bPT_PATHLETS\x10\x02\x12\x17\n\x13PT_BASELINE_SLEEPER\x10\x03\x12\x0f\n\x0bPT_BASELINE\x10\x04')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -41,11 +41,19 @@ _PROTOCOLTYPE = _descriptor.EnumDescriptor(
       name='PT_PATHLETS', index=2, number=2,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PT_BASELINE_SLEEPER', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PT_BASELINE', index=4, number=4,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=595,
-  serialized_end=656,
+  serialized_end=698,
 )
 _sym_db.RegisterEnumDescriptor(_PROTOCOLTYPE)
 
@@ -53,6 +61,8 @@ ProtocolType = enum_type_wrapper.EnumTypeWrapper(_PROTOCOLTYPE)
 PT_UNKNOWN = 0
 PT_WISER = 1
 PT_PATHLETS = 2
+PT_BASELINE_SLEEPER = 3
+PT_BASELINE = 4
 
 
 

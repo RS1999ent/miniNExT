@@ -5,7 +5,8 @@ ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
 as_num: 100
 island_id : 1
-protocol: 'wiser'
+protocol: 'pathlets'
+private_pathlet_ip : '192.168.1.1'
 <end Host>
 
 <begin Host>
@@ -14,8 +15,10 @@ host_name: "b1"
 ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
 as_num: 101
-island_id : 2
-protocol: 'wiser'
+island_id : 3
+protocol: 'baseline_sleeper'
+path_to_initd : '/home/david/repos/quagga_evolvability/quagga-0.99.24.1/quagga'
+private_pathlet_ip : '192.168.2.1'
 <end Host>
 
 <begin Host>
@@ -25,7 +28,8 @@ ip: "172.0.3.1"
 lo_ip: "10.0.3.1"
 as_num: 102
 island_id : 2
-protocol: 'wiser'
+protocol: 'pathlets'
+private_pathlet_ip : '192.168.3.1'
 <end Host>
 
 <begin Host>
@@ -35,7 +39,8 @@ ip: "172.0.4.1"
 lo_ip: "10.0.4.1"
 as_num: 103
 island_id : 2
-protocol: 'wiser'
+protocol: 'pathlets'
+private_pathlet_ip : '192.168.4.1'
 <end Host>
 
 <begin Host>
@@ -75,14 +80,14 @@ adjacency_list_entries {
     }
     links{
         adjacent_node_name: "d1"
-        link_cost : 20
+        link_cost : 100
     }
 }
 adjacency_list_entries {
     primary_node_name: "d1"
     links{
         adjacent_node_name: "c1"
-        link_cost : 20
+        link_cost : 100
     }
 }
 <end Topology>
