@@ -3,7 +3,7 @@ host_type : HT_QUAGGA
 host_name: "a1"
 ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
-as_num: 100
+as_num: 101
 island_id : 1
 protocol: 'pathlets'
 private_pathlet_ip : '192.168.1.1'
@@ -14,10 +14,9 @@ host_type : HT_QUAGGA
 host_name: "b1"
 ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
-as_num: 101
-island_id : 3
-protocol: 'baseline_sleeper'
-path_to_initd : '/home/david/repos/quagga_evolvability/quagga-0.99.24.1/quagga'
+as_num: 102
+island_id : 1
+protocol: 'pathlets'
 private_pathlet_ip : '192.168.2.1'
 <end Host>
 
@@ -26,8 +25,8 @@ host_type : HT_QUAGGA
 host_name: "c1"
 ip: "172.0.3.1"
 lo_ip: "10.0.3.1"
-as_num: 102
-island_id : 2
+as_num: 103
+island_id : 1
 protocol: 'pathlets'
 private_pathlet_ip : '192.168.3.1'
 <end Host>
@@ -37,8 +36,8 @@ host_type : HT_QUAGGA
 host_name: "d1"
 ip: "172.0.4.1"
 lo_ip: "10.0.4.1"
-as_num: 103
-island_id : 2
+as_num: 104
+island_id : 1
 protocol: 'pathlets'
 private_pathlet_ip : '192.168.4.1'
 <end Host>
@@ -53,11 +52,61 @@ path_to_redis_executable : "redis-server"
 island_id : 2
 <end Host>
 
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "e1"
+ip: "172.0.6.1"
+lo_ip: "10.0.6.1"
+as_num: 106
+island_id : 2
+protocol: 'baseline_sleeper'
+path_to_initd : '/home/david/repos/quagga_evolvability/quagga-0.99.24.1/quagga'
+private_pathlet_ip : '192.168.6.1'
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "f1"
+ip: "172.0.7.1"
+lo_ip: "10.0.7.1"
+as_num: 107
+island_id : 3
+protocol: 'pathlets'
+private_pathlet_ip : '192.168.7.1'
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "g1"
+ip: "172.0.8.1"
+lo_ip: "10.0.8.1"
+as_num: 108
+island_id : 3
+protocol: 'pathlets'
+private_pathlet_ip : '192.168.8.1'
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "h1"
+ip: "172.0.9.1"
+lo_ip: "10.0.9.1"
+as_num: 108
+island_id : 4
+protocol: 'baseline_sleeper'
+path_to_initd : '/home/david/repos/quagga_evolvability/quagga-0.99.24.1/quagga'
+private_pathlet_ip : '192.168.9.1'
+<end Host>
+
 <begin Topology>
 adjacency_list_entries {
     primary_node_name: "a1"
     links{
         adjacent_node_name: "b1"
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "c1"
         link_cost : 30
     }
 }
@@ -68,26 +117,82 @@ adjacency_list_entries {
         link_cost: 30
     }
     links{
-        adjacent_node_name: "c1"
-        link_cost : 100
+        adjacent_node_name: "d1"
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "h1"
+        link_cost : 30
     }
 }
 adjacency_list_entries {
     primary_node_name: "c1"
     links{
-        adjacent_node_name: "b1"
-        link_cost : 100
+        adjacent_node_name: "a1"
+        link_cost : 30
     }
     links{
         adjacent_node_name: "d1"
-        link_cost : 100
+        link_cost : 30
     }
 }
 adjacency_list_entries {
     primary_node_name: "d1"
     links{
         adjacent_node_name: "c1"
-        link_cost : 100
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "e1"
+        link_cost : 30
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "e1"
+    links{
+        adjacent_node_name: "d1"
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "f1"
+        link_cost : 30
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "f1"
+    links{
+        adjacent_node_name: "e1"
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "g1"
+        link_cost : 30
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "g1"
+    links{
+        adjacent_node_name: "f1"
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "h1"
+        link_cost : 30
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "h1"
+    links{
+        adjacent_node_name: "g1"
+        link_cost : 30
+    }
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 30
     }
 }
 <end Topology>
