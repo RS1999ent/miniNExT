@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='QuaggaTopo.proto',
   package='',
-  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\xf6\x01\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_initd\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\x12\x11\n\tisland_id\x18\x08 \x01(\r\x12\x1a\n\x12private_pathlet_ip\x18\t \x01(\t\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x18\n\x10is_border_router\x18\x0b \x01(\r\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry*?\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02')
+  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\x99\x02\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_initd\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\x12\x11\n\tisland_id\x18\x08 \x01(\r\x12\x1a\n\x12private_pathlet_ip\x18\t \x01(\t\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x18\n\x10is_border_router\x18\x0b \x01(\r\x12!\n\x0emanual_two_hop\x18\x0c \x01(\x0b\x32\t.MnFilter\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry\"N\n\x08MnFilter\x12\x12\n\none_hop_ip\x18\x01 \x01(\t\x12.\n\x14pathlet_to_advertise\x18\x02 \x01(\x0b\x32\x10.MnManualPathlet\"F\n\x0fMnManualPathlet\x12\x0e\n\x06vnode1\x18\x01 \x01(\r\x12\x0e\n\x06vnode2\x18\x02 \x01(\r\x12\x13\n\x0b\x64\x65stination\x18\x03 \x01(\t*?\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -44,8 +44,8 @@ _HOSTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=460,
-  serialized_end=523,
+  serialized_start=647,
+  serialized_end=710,
 )
 _sym_db.RegisterEnumDescriptor(_HOSTTYPE)
 
@@ -140,6 +140,13 @@ _HOST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='manual_two_hop', full_name='Host.manual_two_hop', index=11,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -152,7 +159,7 @@ _HOST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=21,
-  serialized_end=267,
+  serialized_end=302,
 )
 
 
@@ -188,8 +195,8 @@ _LINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=269,
-  serialized_end=322,
+  serialized_start=304,
+  serialized_end=357,
 )
 
 
@@ -225,8 +232,8 @@ _ADJACENCYLISTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=324,
-  serialized_end=393,
+  serialized_start=359,
+  serialized_end=428,
 )
 
 
@@ -255,17 +262,102 @@ _TOPOLOGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=395,
-  serialized_end=458,
+  serialized_start=430,
+  serialized_end=493,
+)
+
+
+_MNFILTER = _descriptor.Descriptor(
+  name='MnFilter',
+  full_name='MnFilter',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='one_hop_ip', full_name='MnFilter.one_hop_ip', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pathlet_to_advertise', full_name='MnFilter.pathlet_to_advertise', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=495,
+  serialized_end=573,
+)
+
+
+_MNMANUALPATHLET = _descriptor.Descriptor(
+  name='MnManualPathlet',
+  full_name='MnManualPathlet',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vnode1', full_name='MnManualPathlet.vnode1', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='vnode2', full_name='MnManualPathlet.vnode2', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='destination', full_name='MnManualPathlet.destination', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=575,
+  serialized_end=645,
 )
 
 _HOST.fields_by_name['host_type'].enum_type = _HOSTTYPE
+_HOST.fields_by_name['manual_two_hop'].message_type = _MNFILTER
 _ADJACENCYLISTENTRY.fields_by_name['links'].message_type = _LINK
 _TOPOLOGY.fields_by_name['adjacency_list_entries'].message_type = _ADJACENCYLISTENTRY
+_MNFILTER.fields_by_name['pathlet_to_advertise'].message_type = _MNMANUALPATHLET
 DESCRIPTOR.message_types_by_name['Host'] = _HOST
 DESCRIPTOR.message_types_by_name['Link'] = _LINK
 DESCRIPTOR.message_types_by_name['AdjacencyListEntry'] = _ADJACENCYLISTENTRY
 DESCRIPTOR.message_types_by_name['Topology'] = _TOPOLOGY
+DESCRIPTOR.message_types_by_name['MnFilter'] = _MNFILTER
+DESCRIPTOR.message_types_by_name['MnManualPathlet'] = _MNMANUALPATHLET
 DESCRIPTOR.enum_types_by_name['HostType'] = _HOSTTYPE
 
 Host = _reflection.GeneratedProtocolMessageType('Host', (_message.Message,), dict(
@@ -295,6 +387,20 @@ Topology = _reflection.GeneratedProtocolMessageType('Topology', (_message.Messag
   # @@protoc_insertion_point(class_scope:Topology)
   ))
 _sym_db.RegisterMessage(Topology)
+
+MnFilter = _reflection.GeneratedProtocolMessageType('MnFilter', (_message.Message,), dict(
+  DESCRIPTOR = _MNFILTER,
+  __module__ = 'QuaggaTopo_pb2'
+  # @@protoc_insertion_point(class_scope:MnFilter)
+  ))
+_sym_db.RegisterMessage(MnFilter)
+
+MnManualPathlet = _reflection.GeneratedProtocolMessageType('MnManualPathlet', (_message.Message,), dict(
+  DESCRIPTOR = _MNMANUALPATHLET,
+  __module__ = 'QuaggaTopo_pb2'
+  # @@protoc_insertion_point(class_scope:MnManualPathlet)
+  ))
+_sym_db.RegisterMessage(MnManualPathlet)
 
 
 # @@protoc_insertion_point(module_scope)

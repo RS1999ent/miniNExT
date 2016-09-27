@@ -30,6 +30,7 @@ message Host
   optional string private_pathlet_ip = 9;
   optional string protocol = 10;
   optional uint32 is_border_router = 11; // 1 if border router, 0 if not
+  optional MnFilter manual_two_hop = 12;// add manual two hop pathlet here.
 }
 
 // Defines the properties of a link. This is used in Adjacency list entry to
@@ -53,4 +54,15 @@ repeated Link links = 2;
 message Topology
 {
   repeated AdjacencyListEntry adjacency_list_entries = 1;
+}
+
+message MnFilter{
+  optional string one_hop_ip = 1;
+  optional MnManualPathlet pathlet_to_advertise = 2;
+}
+
+message MnManualPathlet{
+  optional uint32 vnode1 = 1;
+  optional uint32 vnode2 = 2;
+  optional string destination = 3;
 }

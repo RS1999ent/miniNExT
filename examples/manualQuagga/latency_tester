@@ -1,0 +1,70 @@
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "a1"
+ip: "172.0.1.1"
+lo_ip: "10.0.1.1"
+as_num: 100
+island_id : 1
+protocol: 'baseline'
+path_to_initd : '/home/david/repos/quagga_evolvability/quagga-0.99.24.1/quagga'
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "b1"
+ip: "172.0.2.1"
+lo_ip: "10.0.2.1"
+as_num: 101
+island_id: 2
+path_to_initd : '/home/david/repos/quagga_evolvability/quagga-0.99.24.1/quagga'
+protocol: 'baseline'
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "c1"
+ip: "172.0.3.1"
+lo_ip: "10.0.3.1"
+as_num: 103
+island_id : 1
+protocol: 'baseline'
+path_to_initd : '/home/david/repos/quagga_evolvability/quagga-0.99.24.1/quagga'
+private_pathlet_ip : '192.168.3.1'
+<end Host>
+
+<begin Host>
+host_type : HT_LOOKUPSERVICE
+host_name: "l1"
+ip: "172.0.5.1"
+lo_ip: "10.0.5.1"
+as_num: 104
+path_to_redis_executable : "redis-server"
+<end Host>
+
+<begin Topology>
+adjacency_list_entries {
+    primary_node_name: "a1"
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "b1"
+    links{
+        adjacent_node_name: "a1"
+        link_cost: 10
+    }
+    links{
+        adjacent_node_name: "c1"
+        link_cost: 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "c1"
+    links{
+        adjacent_node_name: "b1"
+        link_cost: 10
+    }
+}
+<end Topology>

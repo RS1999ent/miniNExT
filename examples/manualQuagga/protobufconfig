@@ -40,6 +40,14 @@ as_num: 104
 island_id : 1
 protocol: 'pathlets'
 private_pathlet_ip : '192.168.4.1'
+manual_two_hop{
+   one_hop_ip: '10.0.3.0/24'
+   pathlet_to_advertise {
+   vnode1: 104
+   vnode2: 101
+    destination: '10.0.1.0/32'
+  }
+}
 <end Host>
 
 <begin Host>
