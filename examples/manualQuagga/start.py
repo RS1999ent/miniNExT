@@ -45,6 +45,8 @@ def InitializeArgParser():
     parser.add_argument('-f', '--protobuf_config_file',
                         default='protobufconfig',
                         help='File where the general configuration for the program is stored as specified by QuaggaTopo.proto')
+    parser.add_argument('-c', '--predone_bgpdconfig', default=0, help='If true, this means that the bgpd configs are already predone and shouldn\'t be generated from the protobufconfig')
+    parser.add_argument('-d', '--delete_configs', default=1, help='If true, then we want to delete the config tree that was created')
     return parser.parse_args()
 
 def startNetwork(host_protos):
@@ -112,14 +114,19 @@ def StartUpRedis(host_protos):
     # print p.stderr
 
 
-def stopNetwork():
-    "stops a network (only called on a forced cleanup)"
+def stopNetwork(delete_configs):
+    """stops a network (only called on a forced cleanup)
+    Arguments:
+       delete_configs: int 1 if we want to delete the config file tree
+    """
+                    
 
     if net is not None:
         info('** Tearing down Quagga network\n')
         net.stop()
     # cleanup generated configs
-    create_configs_and_directory_structure.DeleteConfigs()
+    if delete_configs == 1:
+        create_configs_and_directory_structure.DeleteConfigs()
 
 if __name__ == '__main__':
     # clear logs
@@ -130,7 +137,7 @@ if __name__ == '__main__':
     args = InitializeArgParser()
     print args
     # Force cleanup on exit by registering a cleanup function
-    atexit.register(stopNetwork)
+    atexit.register(stopNetwork, args.delete_configs)
 
     # Tell mininet to print useful information
     setLogLevel('info')
@@ -155,7 +162,7 @@ if __name__ == '__main__':
     print 'HOSTNAME TO GENERAL CONFIG', hostname_to_generalconfig
 
     # Write configs to file system
-    create_configs_and_directory_structure.WriteConfigs(hostname_to_bgpdconfig, hostname_to_generalconfig)
+    create_configs_and_directory_structure.WriteConfigs(hostname_to_bgpdconfig, hostname_to_generalconfig, args.predone_bgpdconfig)
 
     #start up mininet
     startNetwork(host_protos)

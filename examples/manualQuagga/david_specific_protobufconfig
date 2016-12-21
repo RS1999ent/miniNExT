@@ -5,6 +5,7 @@ ip: "172.0.1.1"
 lo_ip: "10.0.1.1"
 as_num: 100
 path_to_initd :"/home/david/repos/modified_quagga_evolvability/quagga-0.99.24.1/quagga"
+protocol : "wiser"
 <end Host>
 
 <begin Host>
@@ -13,22 +14,6 @@ host_name: "b1"
 ip: "172.0.2.1"
 lo_ip: "10.0.2.1"
 as_num: 101
-<end Host>
-
-<begin Host>
-host_type : HT_QUAGGA
-host_name: "c1"
-ip: "172.0.3.1"
-lo_ip: "10.0.3.1"
-as_num: 102
-<end Host>
-
-<begin Host>
-host_type : HT_QUAGGA
-host_name: "d1"
-ip: "172.0.4.1"
-lo_ip: "10.0.4.1"
-as_num: 103
 <end Host>
 
 <begin Host>
@@ -59,57 +44,7 @@ adjacency_list_entries {
         link_cost: 10
     }
     links{
-        adjacent_node_name: "c1"
-        link_cost: 10
-    }
-    links{
         adjacent_node_name: "l1"
-        link_cost : 10
-    }
-}
-adjacency_list_entries {
-    primary_node_name: "c1"
-    links{
-        adjacent_node_name: "b1"
-        link_cost: 10
-    }
-    links{
-        adjacent_node_name: "d1"
-        link_cost: 10
-    }
-    links{
-        adjacent_node_name: "l1"
-        link_cost : 10
-    }
-}
-
-adjacency_list_entries {
-    primary_node_name: "d1"
-    links{
-        adjacent_node_name: "c1"
-        link_cost: 10
-    }
-    links{
-        adjacent_node_name: "l1"
-        link_cost : 10
-    }
-}
-adjacency_list_entries {
-    primary_node_name: "l1"
-    links{
-        adjacent_node_name: "a1"
-        link_cost: 10
-    }
-    links{
-        adjacent_node_name: "b1"
-        link_cost : 10
-    }
-    links{
-        adjacent_node_name: "c1"
-        link_cost : 10
-    }
-    links{
-        adjacent_node_name: "d1"
         link_cost : 10
     }
 }

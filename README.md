@@ -20,6 +20,11 @@ start.py commandline:
          directoy or fully qualified path to file that contains the configuration in
          protobuf text format. By default, it uses the file named "protobufconfig" if
          this isn't specified
+         -c/--predone_bgpdconfig - If 1, this means that the bgpd configs are
+          already predone and shouldn't be generated from the protobufconfig
+          -d/--delete_configs - If 1, then we want to delete the config tree
+           that was created
+
          -h - displays helpline for commandline options
 
 Configuration format:

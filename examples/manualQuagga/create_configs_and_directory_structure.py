@@ -65,7 +65,7 @@ zebra_conf = """
 """
 
 
-def WriteConfigs(host_name_to_bgpdconfig_dict, host_name_to_generalconfig_dict):
+def WriteConfigs(host_name_to_bgpdconfig_dict, host_name_to_generalconfig_dict, predone_bgpdconfig):
     """Function that writes the bgpd configs into the the directory structure of
     the following format:
     config/<host_name>/bgpd.conf
@@ -73,7 +73,14 @@ def WriteConfigs(host_name_to_bgpdconfig_dict, host_name_to_generalconfig_dict):
 
     Arguments:
        host_name_to_bgpdconfig_dict: Keyed on the hostname of the host
-       and the value is the config to be written."""
+       and the value is the config to be written.
+      host_name_to_generalconfig_dict: Where the general configuration file
+      (quagga specific configuration) are located and written to their file.
+      keyed on hostname
+       predone_bgpdconfig: int that is 1 if there is a bgpd config already
+       predone. This means don't write it to bgpd
+
+    """
     #create config directory
     if not os.path.exists('configs'):
         os.makedirs('configs')
@@ -91,7 +98,10 @@ def WriteConfigs(host_name_to_bgpdconfig_dict, host_name_to_generalconfig_dict):
         OpenCreateWrite(path_to_created_directoy + 'daemons', daemons_config)
         OpenCreateWrite(path_to_created_directoy + 'debian.conf', debian_conf )
         OpenCreateWrite(path_to_created_directoy + 'zebra.conf', zebra_conf)
-        OpenCreateWrite(path_to_created_directoy + 'bgpd.conf', bgpdconfig)
+        # if we don't have a predone bgpd config, then write the one based on
+        # the protobufconfig
+        if  predone_bgpdconfig == 0:
+            OpenCreateWrite(path_to_created_directoy + 'bgpd.conf', bgpdconfig)
     for host_name, general_protocol_config_proto in host_name_to_generalconfig_dict.iteritems():
         if not os.path.exists('configs/' + host_name):
             os.makedirs('configs/' + host_name)
