@@ -31,6 +31,8 @@ message Host
   optional string protocol = 10;
   optional uint32 is_border_router = 11; // 1 if border router, 0 if not
   optional MnFilter manual_two_hop = 12;// add manual two hop pathlet here.
+  // options for when 'protocol' is "benchmark"
+  optional BenchmarkProtocolOptions benchmark_protocol_options = 13; 
 }
 
 // Defines the properties of a link. This is used in Adjacency list entry to
@@ -65,4 +67,10 @@ message MnManualPathlet{
   optional uint32 vnode1 = 1;
   optional uint32 vnode2 = 2;
   optional string destination = 3;
+}
+
+// contains options for the benchmark protocol
+message BenchmarkProtocolOptions {
+  // the number of bytes to write to the advertisement
+  optional uint32 num_bytes_to_write = 1;
 }

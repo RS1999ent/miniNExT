@@ -54,6 +54,25 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
     # generate pathlet ocnfigs
     host_to_pathletconfigs = create_pathlets_config.CreatePathletsConfig(protobuf_hosts)
 
+    #creates a quagga_config proto protobuf config that will map a host name to
+    #the benchmark configuration.
+    #
+    # Arguments:
+    #   protobuf_hosts: the list of hosts to generate configs for. In QuaggaTopoForm
+    #
+    # Returns: a dictionary of a host ot a quagga_config benchmark proto object
+    def CreateBenchmakrConfig(protobuf_hosts):
+        return_dict = {}
+        for host in protobuf_hosts:
+            hostname = host.host_name
+            benchmark_config = quagga_config_pb2.BenchmarkProtolConfig()
+            if host.HasField("benchmark_protocol_options"):
+                benchmark_config.num_bytes_to_set = host.benchmark_protocol_options.num_bytes_to_write
+                return_dict[hostname] = benchmark_config
+
+        return return_dict
+
+    hostname_to_benchmark_config = CreateBenchmakrConfig(protobuf_hosts)
     # for each host, create a general config Configuration object from the
     # host_to_wiserconfigs and 'island_ids_to_islandmembers'.
     for host in protobuf_hosts:
@@ -63,6 +82,8 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
             general_config.wiser_protocol_config.CopyFrom(host_to_wiserconfigs[hostname])
         if hostname in host_to_pathletconfigs:
             general_config.pathlet_config.CopyFrom(host_to_pathletconfigs[hostname])
+        if hostname in hostname_to_benchmark_config:
+            general_config.benchmark_protocol_config.CopyFrom(hostname_to_benchmark_config[hostname])
         # for each as that is a member of this island id, if the member does
         # not denote this host, then add it to the general_config
         # island_members
@@ -78,14 +99,13 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
             general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_PATHLETS')
         elif host.protocol == 'baseline_sleeper':
             general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_BASELINE_SLEEPER')
+        elif host.protocol == 'benchmark':
+            general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_BENCHMARK')
         else:
             general_config.protocol_type = quagga_config_pb2.ProtocolType.Value('PT_BASELINE')
 
 
         return_dict[hostname] = general_config
         print general_config
-
-
-    
 
     return return_dict
