@@ -8,6 +8,7 @@ enum HostType
   HT_UNKNOWN = 0;
   HT_QUAGGA = 1;
   HT_LOOKUPSERVICE = 2;
+  HT_UPDATE_REGENERATOR = 3;
 }
 
 // Defines the information needed to start a host up in mininet and the
@@ -33,6 +34,14 @@ message Host
   optional MnFilter manual_two_hop = 12;// add manual two hop pathlet here.
   // options for when 'protocol' is "benchmark"
   optional BenchmarkProtocolOptions benchmark_protocol_options = 13; 
+  optional UpdateRegeneratorOptions update_regenerator_options = 14;
+}
+
+// options for the HT_UPDATE_REGENERATOR host type
+message UpdateRegeneratorOptions {
+  // should contain a quagga destination ip, a mrt slice file, and a asip file.
+  // Full paths for all
+  optional string command = 1; // command to run the update regenerator service.
 }
 
 // Defines the properties of a link. This is used in Adjacency list entry to

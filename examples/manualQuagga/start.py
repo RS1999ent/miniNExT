@@ -8,6 +8,7 @@ Example network of Quagga routers
 import sys
 import subprocess
 import atexit
+import time
 
 # patch isShellBuiltin
 import mininet.util
@@ -83,6 +84,8 @@ def startNetwork(host_protos):
     # start up redis on the lookup service host (specified in
     # host_protos)
     StartUpRedis(host_protos)
+    time.sleep(4)
+    StartUpUpdateRegen(host_protos)
     CLI(net)
 
 def StartUpRedis(host_protos):
@@ -110,6 +113,36 @@ def StartUpRedis(host_protos):
     print command
     p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     # print 'starting redis command'
+    # print p.stdout.readlines()
+    # print p.stderr
+
+def StartUpUpdateRegen(host_protos):
+    """Given a list of host protos, run external program 'mx' that allows one to
+    start up a program on an running host container. This function will use that
+    program to start up the updateregenerator on the appropraite hosts.
+
+    Arguments:
+       host_protos: list of host protobuf messages as defined in
+       QuaggaTopo.proto, only the one with type HT_UPDATE_REGENERATOR will have
+       it started on it.
+
+    """
+    #find HT_UPDATE_REGENERATOR service host proto host name
+    update_regenerator_host_name = ''
+    update_regenerator_command = ''
+    for host_proto in host_protos:
+        if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_UPDATE_REGENERATOR')):
+            update_regenerator_host_name = host_proto.host_name
+            update_regenerator_command = host_proto.update_regenerator_options.command
+            break
+
+    #run mx <host_name> <path_to_redis> commandline
+    command = './' + kMxLocation + ' ' + update_regenerator_host_name + ' ' + update_regenerator_command
+    print command
+    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    # print 'starting redis command'
+    for entry in p.stdout.readlines():
+        print entry
     # print p.stdout.readlines()
     # print p.stderr
 

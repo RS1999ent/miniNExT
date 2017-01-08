@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='QuaggaTopo.proto',
   package='',
-  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\xd8\x02\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_initd\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\x12\x11\n\tisland_id\x18\x08 \x01(\r\x12\x1a\n\x12private_pathlet_ip\x18\t \x01(\t\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x18\n\x10is_border_router\x18\x0b \x01(\r\x12!\n\x0emanual_two_hop\x18\x0c \x01(\x0b\x32\t.MnFilter\x12=\n\x1a\x62\x65nchmark_protocol_options\x18\r \x01(\x0b\x32\x19.BenchmarkProtocolOptions\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry\"N\n\x08MnFilter\x12\x12\n\none_hop_ip\x18\x01 \x01(\t\x12.\n\x14pathlet_to_advertise\x18\x02 \x01(\x0b\x32\x10.MnManualPathlet\"F\n\x0fMnManualPathlet\x12\x0e\n\x06vnode1\x18\x01 \x01(\r\x12\x0e\n\x06vnode2\x18\x02 \x01(\r\x12\x13\n\x0b\x64\x65stination\x18\x03 \x01(\t\"6\n\x18\x42\x65nchmarkProtocolOptions\x12\x1a\n\x12num_bytes_to_write\x18\x01 \x01(\r*?\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02')
+  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\x97\x03\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_initd\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\x12\x11\n\tisland_id\x18\x08 \x01(\r\x12\x1a\n\x12private_pathlet_ip\x18\t \x01(\t\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x18\n\x10is_border_router\x18\x0b \x01(\r\x12!\n\x0emanual_two_hop\x18\x0c \x01(\x0b\x32\t.MnFilter\x12=\n\x1a\x62\x65nchmark_protocol_options\x18\r \x01(\x0b\x32\x19.BenchmarkProtocolOptions\x12=\n\x1aupdate_regenerator_options\x18\x0e \x01(\x0b\x32\x19.UpdateRegeneratorOptions\"+\n\x18UpdateRegeneratorOptions\x12\x0f\n\x07\x63ommand\x18\x01 \x01(\t\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry\"N\n\x08MnFilter\x12\x12\n\none_hop_ip\x18\x01 \x01(\t\x12.\n\x14pathlet_to_advertise\x18\x02 \x01(\x0b\x32\x10.MnManualPathlet\"F\n\x0fMnManualPathlet\x12\x0e\n\x06vnode1\x18\x01 \x01(\r\x12\x0e\n\x06vnode2\x18\x02 \x01(\r\x12\x13\n\x0b\x64\x65stination\x18\x03 \x01(\t\"6\n\x18\x42\x65nchmarkProtocolOptions\x12\x1a\n\x12num_bytes_to_write\x18\x01 \x01(\r*Z\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02\x12\x19\n\x15HT_UPDATE_REGENERATOR\x10\x03')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -41,11 +41,15 @@ _HOSTTYPE = _descriptor.EnumDescriptor(
       name='HT_LOOKUPSERVICE', index=2, number=2,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HT_UPDATE_REGENERATOR', index=3, number=3,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=766,
-  serialized_end=829,
+  serialized_start=874,
+  serialized_end=964,
 )
 _sym_db.RegisterEnumDescriptor(_HOSTTYPE)
 
@@ -53,6 +57,7 @@ HostType = enum_type_wrapper.EnumTypeWrapper(_HOSTTYPE)
 HT_UNKNOWN = 0
 HT_QUAGGA = 1
 HT_LOOKUPSERVICE = 2
+HT_UPDATE_REGENERATOR = 3
 
 
 
@@ -154,6 +159,13 @@ _HOST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='update_regenerator_options', full_name='Host.update_regenerator_options', index=13,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -166,7 +178,37 @@ _HOST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=21,
-  serialized_end=365,
+  serialized_end=428,
+)
+
+
+_UPDATEREGENERATOROPTIONS = _descriptor.Descriptor(
+  name='UpdateRegeneratorOptions',
+  full_name='UpdateRegeneratorOptions',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='command', full_name='UpdateRegeneratorOptions.command', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=430,
+  serialized_end=473,
 )
 
 
@@ -202,8 +244,8 @@ _LINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=367,
-  serialized_end=420,
+  serialized_start=475,
+  serialized_end=528,
 )
 
 
@@ -239,8 +281,8 @@ _ADJACENCYLISTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=422,
-  serialized_end=491,
+  serialized_start=530,
+  serialized_end=599,
 )
 
 
@@ -269,8 +311,8 @@ _TOPOLOGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=493,
-  serialized_end=556,
+  serialized_start=601,
+  serialized_end=664,
 )
 
 
@@ -306,8 +348,8 @@ _MNFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=558,
-  serialized_end=636,
+  serialized_start=666,
+  serialized_end=744,
 )
 
 
@@ -350,8 +392,8 @@ _MNMANUALPATHLET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=638,
-  serialized_end=708,
+  serialized_start=746,
+  serialized_end=816,
 )
 
 
@@ -380,17 +422,19 @@ _BENCHMARKPROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=710,
-  serialized_end=764,
+  serialized_start=818,
+  serialized_end=872,
 )
 
 _HOST.fields_by_name['host_type'].enum_type = _HOSTTYPE
 _HOST.fields_by_name['manual_two_hop'].message_type = _MNFILTER
 _HOST.fields_by_name['benchmark_protocol_options'].message_type = _BENCHMARKPROTOCOLOPTIONS
+_HOST.fields_by_name['update_regenerator_options'].message_type = _UPDATEREGENERATOROPTIONS
 _ADJACENCYLISTENTRY.fields_by_name['links'].message_type = _LINK
 _TOPOLOGY.fields_by_name['adjacency_list_entries'].message_type = _ADJACENCYLISTENTRY
 _MNFILTER.fields_by_name['pathlet_to_advertise'].message_type = _MNMANUALPATHLET
 DESCRIPTOR.message_types_by_name['Host'] = _HOST
+DESCRIPTOR.message_types_by_name['UpdateRegeneratorOptions'] = _UPDATEREGENERATOROPTIONS
 DESCRIPTOR.message_types_by_name['Link'] = _LINK
 DESCRIPTOR.message_types_by_name['AdjacencyListEntry'] = _ADJACENCYLISTENTRY
 DESCRIPTOR.message_types_by_name['Topology'] = _TOPOLOGY
@@ -405,6 +449,13 @@ Host = _reflection.GeneratedProtocolMessageType('Host', (_message.Message,), dic
   # @@protoc_insertion_point(class_scope:Host)
   ))
 _sym_db.RegisterMessage(Host)
+
+UpdateRegeneratorOptions = _reflection.GeneratedProtocolMessageType('UpdateRegeneratorOptions', (_message.Message,), dict(
+  DESCRIPTOR = _UPDATEREGENERATOROPTIONS,
+  __module__ = 'QuaggaTopo_pb2'
+  # @@protoc_insertion_point(class_scope:UpdateRegeneratorOptions)
+  ))
+_sym_db.RegisterMessage(UpdateRegeneratorOptions)
 
 Link = _reflection.GeneratedProtocolMessageType('Link', (_message.Message,), dict(
   DESCRIPTOR = _LINK,
