@@ -84,7 +84,7 @@ def startNetwork(host_protos):
     # start up redis on the lookup service host (specified in
     # host_protos)
     StartUpRedis(host_protos)
-    time.sleep(4)
+    # time.sleep(4)
     StartUpUpdateRegen(host_protos)
     CLI(net)
 
@@ -128,21 +128,30 @@ def StartUpUpdateRegen(host_protos):
 
     """
     #find HT_UPDATE_REGENERATOR service host proto host name
-    update_regenerator_host_name = ''
-    update_regenerator_command = ''
+    # update_regenerator_host_name = ''
+    # update_regenerator_command = ''
+    hostname_to_command_map = {}
     for host_proto in host_protos:
         if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_UPDATE_REGENERATOR')):
-            update_regenerator_host_name = host_proto.host_name
-            update_regenerator_command = host_proto.update_regenerator_options.command
-            break
+            hostname_to_command_map[host_proto.host_name] = host_proto.update_regenerator_options.command
+            print host_proto.host_name
+            # update_regenerator_host_name = host_proto.host_name
+            # update_regenerator_command = host_proto.update_regenerator_options.command
 
     #run mx <host_name> <path_to_redis> commandline
-    command = './' + kMxLocation + ' ' + update_regenerator_host_name + ' ' + update_regenerator_command
-    print command
-    p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    # list of Popen commands running
+    running_commands = []
+    for hostname, update_injector_command in hostname_to_command_map.iteritems():
+        command = './' + kMxLocation + ' ' + hostname + ' ' + update_injector_command
+        print command
+        p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        running_commands.append(p)
+
+
     # print 'starting redis command'
-    for entry in p.stdout.readlines():
-        print entry
+    for p in running_commands:
+        for entry in p.stdout.readlines():
+            print entry
     # print p.stdout.readlines()
     # print p.stderr
 

@@ -1,0 +1,54 @@
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "a1"
+ip: "172.0.1.1"
+lo_ip: "10.0.1.1"
+as_num: 65000
+path_to_initd :"/home/david/repos/instrumented_quagga/quagga-0.99.24.1/quagga"
+<end Host>
+
+<begin Host>
+host_type : HT_UPDATE_REGENERATOR
+host_name: "r1"
+ip: "172.0.3.1"
+lo_ip: "10.0.3.1"
+as_num: 65002
+update_regenerator_options {
+    command: "/home/david/repos/miniNExT/examples/manualQuagga/utils/bgpsimple/bgp_simple.pl -myas 65002 -myip 172.0.3.1 -peerip 172.0.1.1 -peeras 65000 -p  /home/david/repos/miniNExT/examples/manualQuagga/utils/bgpsimple/01-17-bview_converted -m 1000000"  
+    # command: "echo test"
+}
+<end Host>
+
+<begin Host>
+host_type : HT_LOOKUPSERVICE
+host_name: "l1"
+ip: "172.0.5.1"
+lo_ip: "10.0.5.1"
+as_num: 104
+path_to_redis_executable :"/home/david/repos/kvstores/redis/src/redis-server"
+<end Host>
+
+<begin Topology>
+adjacency_list_entries {
+    primary_node_name: "a1"
+    links {
+          adjacent_node_name: "r1"
+          link_cost: 10
+    }
+    links{
+        adjacent_node_name: "l1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "b1"
+    links{
+        adjacent_node_name: "a1"
+        link_cost: 10
+    }
+    links{
+        adjacent_node_name: "l1"
+        link_cost : 10
+    }
+}
+<end Topology>

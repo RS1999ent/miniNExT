@@ -1,0 +1,319 @@
+0KB
+
+2017/01/13 08:10:29 BGP: PrintBenchmarkStats: nanosec dur 105225623325, seconds 105.225623, tput 8553.534506
+2017/01/13 08:10:29 BGP: PrintBenchmarkStats: Advertisement processed per second: 8553.534506
+2017/01/13 08:10:29 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007080, beagle 0.000000, sum 0.007080 (ms)
+2017/01/13 08:10:29 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003061 (0.001080: bgp_process_main, 0.001981: bgp_nlri_parse)
+2017/01/13 08:10:29 BGP: elapsed time is: 105225.623198
+2017/01/13 08:10:29 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.116911
+2017/01/13 08:10:29 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:10:29 BGP: PrintBenchmarkStats: comma separated: 8553.534506, 0.007080, 0.003061, 0.000000, 0.116911
+2017/01/13 08:10:29 BGP: bgp_process_main: num adverts 900051, time 1484316629 secs 600448993 nsec
+
+2017/01/13 08:13:35 BGP: PrintBenchmarkStats: nanosec dur 102291616628, seconds 102.291617, tput 8800.075995
+2017/01/13 08:13:35 BGP: PrintBenchmarkStats: Advertisement processed per second: 8800.075995
+2017/01/13 08:13:35 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.006250, beagle 0.000000, sum 0.006250 (ms)
+2017/01/13 08:13:35 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.002842 (0.000998: bgp_process_main, 0.001844: bgp_nlri_parse)
+2017/01/13 08:13:35 BGP: elapsed time is: 102291.616586
+2017/01/13 08:13:35 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113635
+2017/01/13 08:13:35 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:13:35 BGP: PrintBenchmarkStats: comma separated: 8800.075995, 0.006250, 0.002842, 0.000000, 0.113635
+2017/01/13 08:13:35 BGP: bgp_process_main: num adverts 900174, time 1484316815 secs 521784734 nsec
+
+2017/01/13 08:17:02 BGP: PrintBenchmarkStats: nanosec dur 102327507533, seconds 102.327508, tput 8796.989409
+2017/01/13 08:17:02 BGP: PrintBenchmarkStats: Advertisement processed per second: 8796.989409
+2017/01/13 08:17:02 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.006581, beagle 0.000000, sum 0.006581 (ms)
+2017/01/13 08:17:02 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.002770 (0.000944: bgp_process_main, 0.001825: bgp_nlri_parse)
+2017/01/13 08:17:02 BGP: elapsed time is: 102327.507480
+2017/01/13 08:17:02 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113675
+2017/01/13 08:17:02 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:17:02 BGP: PrintBenchmarkStats: comma separated: 8796.989409, 0.006581, 0.002770, 0.000000, 0.113675
+2017/01/13 08:17:02 BGP: bgp_process_main: num adverts 900174, time 1484317022 secs 269710094 nsec
+
+4KB
+
+2017/01/13 08:20:24 BGP: PrintBenchmarkStats: nanosec dur 106436312151, seconds 106.436312, tput 8455.939348
+2017/01/13 08:20:24 BGP: PrintBenchmarkStats: Advertisement processed per second: 8455.939348
+2017/01/13 08:20:24 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.008186, beagle 0.005569, sum 0.013754 (ms)
+2017/01/13 08:20:24 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003243 (0.000953: bgp_process_main, 0.002290: bgp_nlri_parse)
+2017/01/13 08:20:24 BGP: elapsed time is: 106436.312109
+2017/01/13 08:20:24 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.118260
+2017/01/13 08:20:24 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:20:24 BGP: PrintBenchmarkStats: comma separated: 8455.939348, 0.013754, 0.003243, 0.000000, 0.118260
+2017/01/13 08:20:24 BGP: bgp_process_main: num adverts 900019, time 1484317224 secs 337168699 nsec
+
+2017/01/13 08:22:41 BGP: PrintBenchmarkStats: nanosec dur 105500404488, seconds 105.500404, tput 8532.280083
+2017/01/13 08:22:41 BGP: PrintBenchmarkStats: Advertisement processed per second: 8532.280083
+2017/01/13 08:22:41 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.008141, beagle 0.005526, sum 0.013667 (ms)
+2017/01/13 08:22:41 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003253 (0.000955: bgp_process_main, 0.002298: bgp_nlri_parse)
+2017/01/13 08:22:41 BGP: elapsed time is: 105500.404414
+2017/01/13 08:22:41 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.117202
+2017/01/13 08:22:41 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:22:41 BGP: PrintBenchmarkStats: comma separated: 8532.280083, 0.013667, 0.003253, 0.000000, 0.117202
+2017/01/13 08:22:41 BGP: bgp_process_main: num adverts 900159, time 1484317361 secs 419136110 nsec
+
+2017/01/13 08:25:46 BGP: PrintBenchmarkStats: nanosec dur 102431004095, seconds 102.431004, tput 8790.082729
+2017/01/13 08:25:46 BGP: PrintBenchmarkStats: Advertisement processed per second: 8790.082729
+2017/01/13 08:25:46 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.006961, beagle 0.005121, sum 0.012082 (ms)
+2017/01/13 08:25:46 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003101 (0.000944: bgp_process_main, 0.002156: bgp_nlri_parse)
+2017/01/13 08:25:46 BGP: elapsed time is: 102431.004033
+2017/01/13 08:25:46 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113765
+2017/01/13 08:25:46 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:25:46 BGP: PrintBenchmarkStats: comma separated: 8790.082729, 0.012082, 0.003101, 0.000000, 0.113765
+2017/01/13 08:25:46 BGP: bgp_process_main: num adverts 900377, time 1484317546 secs 739234117 nsec
+
+8kb
+
+2017/01/13 08:28:44 BGP: PrintBenchmarkStats: nanosec dur 106854541898, seconds 106.854542, tput 8423.039246
+2017/01/13 08:28:44 BGP: PrintBenchmarkStats: Advertisement processed per second: 8423.039246
+2017/01/13 08:28:44 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.008233, beagle 0.006099, sum 0.014332 (ms)
+2017/01/13 08:28:44 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003316 (0.000971: bgp_process_main, 0.002346: bgp_nlri_parse)
+2017/01/13 08:28:44 BGP: elapsed time is: 106854.541856
+2017/01/13 08:28:44 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.118722
+2017/01/13 08:28:44 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:28:44 BGP: PrintBenchmarkStats: comma separated: 8423.039246, 0.014332, 0.003316, 0.000000, 0.118722
+2017/01/13 08:28:44 BGP: bgp_process_main: num adverts 900040, time 1484317724 secs 1518109 nsec
+
+2017/01/13 08:31:12 BGP: PrintBenchmarkStats: nanosec dur 101070089970, seconds 101.070090, tput 8907.838118
+2017/01/13 08:31:12 BGP: PrintBenchmarkStats: Advertisement processed per second: 8907.838118
+2017/01/13 08:31:12 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.006418, beagle 0.005429, sum 0.011847 (ms)
+2017/01/13 08:31:12 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003090 (0.000933: bgp_process_main, 0.002157: bgp_nlri_parse)
+2017/01/13 08:31:12 BGP: elapsed time is: 101070.089910
+2017/01/13 08:31:12 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.112261
+2017/01/13 08:31:12 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:31:12 BGP: PrintBenchmarkStats: comma separated: 8907.838118, 0.011847, 0.003090, 0.000000, 0.112261
+2017/01/13 08:31:12 BGP: bgp_process_main: num adverts 900316, time 1484317872 secs 442694955 nsec
+
+2017/01/13 08:33:31 BGP: PrintBenchmarkStats: nanosec dur 104452466884, seconds 104.452467, tput 8616.675382
+2017/01/13 08:33:31 BGP: PrintBenchmarkStats: Advertisement processed per second: 8616.675382
+2017/01/13 08:33:31 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007315, beagle 0.005816, sum 0.013131 (ms)
+2017/01/13 08:33:31 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003226 (0.000965: bgp_process_main, 0.002261: bgp_nlri_parse)
+2017/01/13 08:33:31 BGP: elapsed time is: 104452.466490
+2017/01/13 08:33:31 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.116054
+2017/01/13 08:33:31 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:33:31 BGP: PrintBenchmarkStats: comma separated: 8616.675382, 0.013131, 0.003226, 0.000000, 0.116054
+2017/01/13 08:33:31 BGP: bgp_process_main: num adverts 900033, time 1484318011 secs 65711178 nsec
+
+16KB
+
+2017/01/13 08:36:35 BGP: PrintBenchmarkStats: nanosec dur 102983830438, seconds 102.983830, tput 8743.285195
+2017/01/13 08:36:35 BGP: PrintBenchmarkStats: Advertisement processed per second: 8743.285195
+2017/01/13 08:36:35 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007133, beagle 0.006642, sum 0.013776 (ms)
+2017/01/13 08:36:35 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003212 (0.000928: bgp_process_main, 0.002284: bgp_nlri_parse)
+2017/01/13 08:36:35 BGP: elapsed time is: 102983.830390
+2017/01/13 08:36:35 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.114373
+2017/01/13 08:36:35 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:36:35 BGP: PrintBenchmarkStats: comma separated: 8743.285195, 0.013776, 0.003212, 0.000000, 0.114373
+2017/01/13 08:36:35 BGP: bgp_process_main: num adverts 900417, time 1484318195 secs 783057765 nsec
+
+2017/01/13 08:38:54 BGP: PrintBenchmarkStats: nanosec dur 103745488765, seconds 103.745489, tput 8676.059178
+2017/01/13 08:38:54 BGP: PrintBenchmarkStats: Advertisement processed per second: 8676.059178
+2017/01/13 08:38:54 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007167, beagle 0.006688, sum 0.013855 (ms)
+2017/01/13 08:38:54 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003208 (0.000941: bgp_process_main, 0.002267: bgp_nlri_parse)
+2017/01/13 08:38:54 BGP: elapsed time is: 103745.488628
+2017/01/13 08:38:54 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.115260
+2017/01/13 08:38:54 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:38:54 BGP: PrintBenchmarkStats: comma separated: 8676.059178, 0.013855, 0.003208, 0.000000, 0.115260
+2017/01/13 08:38:54 BGP: bgp_process_main: num adverts 900102, time 1484318334 secs 209305491 nsec
+
+2017/01/13 08:39:39 BGP: bgp_nlri_parse: start time of first advertisement: 1484318379 secs, 205603210 ns
+2017/01/13 08:39:39 BGP: bgp_route: starting end to end clock
+2017/01/13 08:41:21 BGP: PrintBenchmarkStats: nanosec dur 102781405724, seconds 102.781406, tput 8757.118991
+2017/01/13 08:41:21 BGP: PrintBenchmarkStats: Advertisement processed per second: 8757.118991
+2017/01/13 08:41:21 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.006813, beagle 0.006525, sum 0.013338 (ms)
+2017/01/13 08:41:21 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003212 (0.000946: bgp_process_main, 0.002266: bgp_nlri_parse)
+2017/01/13 08:41:21 BGP: elapsed time is: 102781.405668
+2017/01/13 08:41:21 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.114193
+2017/01/13 08:41:21 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:41:21 BGP: PrintBenchmarkStats: comma separated: 8757.118991, 0.013338, 0.003212, 0.000000, 0.114193
+2017/01/13 08:41:21 BGP: bgp_process_main: num adverts 900069, time 1484318481 secs 987118456 nsec
+
+32KB 
+
+2017/01/13 08:42:13 BGP: bgp_nlri_parse: start time of first advertisement: 1484318533 secs, 40185435 ns
+2017/01/13 08:42:13 BGP: bgp_route: starting end to end clock
+2017/01/13 08:43:55 BGP: PrintBenchmarkStats: nanosec dur 102393485845, seconds 102.393486, tput 8790.305287
+2017/01/13 08:43:55 BGP: PrintBenchmarkStats: Advertisement processed per second: 8790.305287
+2017/01/13 08:43:55 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.006977, beagle 0.008459, sum 0.015435 (ms)
+2017/01/13 08:43:55 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003181 (0.000911: bgp_process_main, 0.002271: bgp_nlri_parse)
+2017/01/13 08:43:55 BGP: elapsed time is: 102393.485796
+2017/01/13 08:43:55 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113762
+2017/01/13 08:43:55 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:43:55 BGP: PrintBenchmarkStats: comma separated: 8790.305287, 0.015435, 0.003181, 0.000000, 0.113762
+2017/01/13 08:43:55 BGP: bgp_process_main: num adverts 900070, time 1484318635 secs 433763498 nsec
+
+2017/01/13 08:44:41 BGP: bgp_nlri_parse: start time of first advertisement: 1484318681 secs, 498499096 ns
+2017/01/13 08:44:41 BGP: bgp_route: starting end to end clock
+2017/01/13 08:46:26 BGP: PrintBenchmarkStats: nanosec dur 104604392748, seconds 104.604393, tput 8607.248475
+2017/01/13 08:46:26 BGP: PrintBenchmarkStats: Advertisement processed per second: 8607.248475
+2017/01/13 08:46:26 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007359, beagle 0.008710, sum 0.016069 (ms)
+2017/01/13 08:46:26 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003314 (0.000954: bgp_process_main, 0.002361: bgp_nlri_parse)
+2017/01/13 08:46:26 BGP: elapsed time is: 104604.392704
+2017/01/13 08:46:26 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.116181
+2017/01/13 08:46:26 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:46:26 BGP: PrintBenchmarkStats: comma separated: 8607.248475, 0.016069, 0.003314, 0.000000, 0.116181
+2017/01/13 08:46:26 BGP: bgp_process_main: num adverts 900356, time 1484318786 secs 102984871 nsec
+
+2017/01/13 08:48:10 BGP: bgp_nlri_parse: start time of first advertisement: 1484318890 secs, 7586432 ns
+2017/01/13 08:48:10 BGP: bgp_route: starting end to end clock
+2017/01/13 08:49:53 BGP: PrintBenchmarkStats: nanosec dur 103389852392, seconds 103.389852, tput 8705.409469
+2017/01/13 08:49:53 BGP: PrintBenchmarkStats: Advertisement processed per second: 8705.409469
+2017/01/13 08:49:53 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.006995, beagle 0.008564, sum 0.015560 (ms)
+2017/01/13 08:49:53 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003194 (0.000929: bgp_process_main, 0.002265: bgp_nlri_parse)
+2017/01/13 08:49:53 BGP: elapsed time is: 103389.852349
+2017/01/13 08:49:53 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.114871
+2017/01/13 08:49:53 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:49:53 BGP: PrintBenchmarkStats: comma separated: 8705.409469, 0.015560, 0.003194, 0.000000, 0.114871
+2017/01/13 08:49:53 BGP: bgp_process_main: num adverts 900051, time 1484318993 secs 397507370 nsec
+
+64KB
+
+2017/01/13 08:51:11 BGP: bgp_nlri_parse: start time of first advertisement: 1484319071 secs, 329675500 ns
+2017/01/13 08:51:11 BGP: bgp_route: starting end to end clock
+2017/01/13 08:52:54 BGP: PrintBenchmarkStats: nanosec dur 103532127439, seconds 103.532127, tput 8694.431596
+2017/01/13 08:52:54 BGP: PrintBenchmarkStats: Advertisement processed per second: 8694.431596
+2017/01/13 08:52:54 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007186, beagle 0.012565, sum 0.019751 (ms)
+2017/01/13 08:52:54 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003384 (0.000939: bgp_process_main, 0.002446: bgp_nlri_parse)
+2017/01/13 08:52:54 BGP: elapsed time is: 103532.127385
+2017/01/13 08:52:54 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.115016
+2017/01/13 08:52:54 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:52:54 BGP: PrintBenchmarkStats: comma separated: 8694.431596, 0.019751, 0.003384, 0.000000, 0.115016
+2017/01/13 08:52:54 BGP: bgp_process_main: num adverts 900153, time 1484319174 secs 861929649 nsec
+
+2017/01/13 08:54:21 BGP: bgp_nlri_parse: start time of first advertisement: 1484319261 secs, 546435964 ns
+2017/01/13 08:54:21 BGP: bgp_route: starting end to end clock
+2017/01/13 08:56:04 BGP: PrintBenchmarkStats: nanosec dur 103123386095, seconds 103.123386, tput 8732.228780
+2017/01/13 08:56:04 BGP: PrintBenchmarkStats: Advertisement processed per second: 8732.228780
+2017/01/13 08:56:04 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007168, beagle 0.012550, sum 0.019718 (ms)
+2017/01/13 08:56:04 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003328 (0.000918: bgp_process_main, 0.002410: bgp_nlri_parse)
+2017/01/13 08:56:04 BGP: elapsed time is: 103123.386051
+2017/01/13 08:56:04 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.114518
+2017/01/13 08:56:04 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:56:04 BGP: PrintBenchmarkStats: comma separated: 8732.228780, 0.019718, 0.003328, 0.000000, 0.114518
+2017/01/13 08:56:04 BGP: bgp_process_main: num adverts 900497, time 1484319364 secs 669938584 nsec
+
+2017/01/13 08:56:30 BGP: bgp_nlri_parse: start time of first advertisement: 1484319390 secs, 691260782 ns
+2017/01/13 08:56:30 BGP: bgp_route: starting end to end clock
+2017/01/13 08:58:14 BGP: PrintBenchmarkStats: nanosec dur 103806017957, seconds 103.806018, tput 8672.098378
+2017/01/13 08:58:14 BGP: PrintBenchmarkStats: Advertisement processed per second: 8672.098378
+2017/01/13 08:58:14 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.007247, beagle 0.012419, sum 0.019666 (ms)
+2017/01/13 08:58:14 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003381 (0.000943: bgp_process_main, 0.002438: bgp_nlri_parse)
+2017/01/13 08:58:14 BGP: elapsed time is: 103806.017911
+2017/01/13 08:58:14 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.115312
+2017/01/13 08:58:14 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 08:58:14 BGP: PrintBenchmarkStats: comma separated: 8672.098378, 0.019666, 0.003381, 0.000000, 0.115312
+2017/01/13 08:58:14 BGP: bgp_process_main: num adverts 900216, time 1484319494 secs 497375600 nsec
+
+128KB
+
+2017/01/13 08:58:48 BGP: bgp_nlri_parse: start time of first advertisement: 1484319528 secs, 761283689 ns
+2017/01/13 08:58:48 BGP: bgp_route: starting end to end clock
+2017/01/13 09:00:31 BGP: PrintBenchmarkStats: nanosec dur 102478215240, seconds 102.478215, tput 8784.862206
+2017/01/13 09:00:31 BGP: PrintBenchmarkStats: Advertisement processed per second: 8784.862206
+2017/01/13 09:00:31 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.008357, beagle 0.049348, sum 0.057705 (ms)
+2017/01/13 09:00:31 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.004246 (0.000936: bgp_process_main, 0.003310: bgp_nlri_parse)
+2017/01/13 09:00:31 BGP: elapsed time is: 102478.215191
+2017/01/13 09:00:31 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113832
+2017/01/13 09:00:31 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 09:00:31 BGP: PrintBenchmarkStats: comma separated: 8784.862206, 0.057705, 0.004246, 0.000000, 0.113832
+2017/01/13 09:00:31 BGP: bgp_process_main: num adverts 900257, time 1484319631 secs 239591517 nsec
+
+2017/01/13 09:04:36 BGP: bgp_nlri_parse: start time of first advertisement: 1484319876 secs, 196378235 ns
+2017/01/13 09:04:36 BGP: bgp_route: starting end to end clock
+2017/01/13 09:06:18 BGP: PrintBenchmarkStats: nanosec dur 102398197545, seconds 102.398198, tput 8791.814911
+2017/01/13 09:06:18 BGP: PrintBenchmarkStats: Advertisement processed per second: 8791.814911
+2017/01/13 09:06:18 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.008666, beagle 0.049416, sum 0.058082 (ms)
+2017/01/13 09:06:18 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.004156 (0.000928: bgp_process_main, 0.003228: bgp_nlri_parse)
+2017/01/13 09:06:18 BGP: elapsed time is: 102398.197499
+2017/01/13 09:06:18 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113742
+2017/01/13 09:06:18 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 09:06:18 BGP: PrintBenchmarkStats: comma separated: 8791.814911, 0.058082, 0.004156, 0.000000, 0.113742
+2017/01/13 09:06:18 BGP: bgp_process_main: num adverts 900266, time 1484319978 secs 594652704 nsec
+
+2017/01/13 09:07:23 BGP: bgp_nlri_parse: start time of first advertisement: 1484320043 secs, 112353095 ns
+2017/01/13 09:07:23 BGP: bgp_route: starting end to end clock
+2017/01/13 09:09:05 BGP: PrintBenchmarkStats: nanosec dur 101984012313, seconds 101.984012, tput 8828.040588
+2017/01/13 09:09:05 BGP: PrintBenchmarkStats: Advertisement processed per second: 8828.040588
+2017/01/13 09:09:05 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.008452, beagle 0.049252, sum 0.057704 (ms)
+2017/01/13 09:09:05 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.004227 (0.000942: bgp_process_main, 0.003285: bgp_nlri_parse)
+2017/01/13 09:09:05 BGP: elapsed time is: 101984.012244
+2017/01/13 09:09:05 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113275
+2017/01/13 09:09:05 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 09:09:05 BGP: PrintBenchmarkStats: comma separated: 8828.040588, 0.057704, 0.004227, 0.000000, 0.113275
+2017/01/13 09:09:05 BGP: bgp_process_main: num adverts 900319, time 1484320145 secs 96456928 nsec
+
+256KB
+
+2017/01/13 09:11:39 BGP: bgp_nlri_parse: start time of first advertisement: 1484320299 secs, 147955957 ns
+2017/01/13 09:11:39 BGP: bgp_route: starting end to end clock
+2017/01/13 09:13:30 BGP: PrintBenchmarkStats: nanosec dur 111152169394, seconds 111.152169, tput 8097.727691
+2017/01/13 09:13:30 BGP: PrintBenchmarkStats: Advertisement processed per second: 8097.727691
+2017/01/13 09:13:30 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.005243, beagle 0.100389, sum 0.105632 (ms)
+2017/01/13 09:13:30 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003695 (0.000607: bgp_process_main, 0.003088: bgp_nlri_parse)
+2017/01/13 09:13:30 BGP: elapsed time is: 111152.169350
+2017/01/13 09:13:30 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.123491
+2017/01/13 09:13:30 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 09:13:30 BGP: PrintBenchmarkStats: comma separated: 8097.727691, 0.105632, 0.003695, 0.000000, 0.123491
+2017/01/13 09:13:30 BGP: bgp_process_main: num adverts 900080, time 1484320410 secs 300235824 nsec
+
+2017/01/13 09:14:29 BGP: bgp_nlri_parse: start time of first advertisement: 1484320469 secs, 807533432 ns
+2017/01/13 09:14:29 BGP: bgp_route: starting end to end clock
+2017/01/13 09:16:20 BGP: PrintBenchmarkStats: nanosec dur 110590487967, seconds 110.590488, tput 8147.789349
+2017/01/13 09:16:20 BGP: PrintBenchmarkStats: Advertisement processed per second: 8147.789349
+2017/01/13 09:16:20 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.004513, beagle 0.100940, sum 0.105453 (ms)
+2017/01/13 09:16:20 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003581 (0.000597: bgp_process_main, 0.002984: bgp_nlri_parse)
+2017/01/13 09:16:20 BGP: elapsed time is: 110590.487896
+2017/01/13 09:16:20 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.122733
+2017/01/13 09:16:20 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 09:16:20 BGP: PrintBenchmarkStats: comma separated: 8147.789349, 0.105453, 0.003581, 0.000000, 0.122733
+2017/01/13 09:16:20 BGP: bgp_process_main: num adverts 901068, time 1484320580 secs 398137185 nsec
+
+2017/01/13 09:17:27 BGP: bgp_nlri_parse: start time of first advertisement: 1484320647 secs, 650792709 ns
+2017/01/13 09:17:27 BGP: bgp_route: starting end to end clock
+2017/01/13 09:19:19 BGP: PrintBenchmarkStats: nanosec dur 112164256388, seconds 112.164256, tput 8025.043173
+2017/01/13 09:19:19 BGP: PrintBenchmarkStats: Advertisement processed per second: 8025.043173
+2017/01/13 09:19:19 BGP: PrintBenchmarkStats: Average bgp deserialization latency: traditional 0.005429, beagle 0.100286, sum 0.105715 (ms)
+2017/01/13 09:19:19 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.003606 (0.000620: bgp_process_main, 0.002986: bgp_nlri_parse)
+2017/01/13 09:19:19 BGP: elapsed time is: 112164.256349
+2017/01/13 09:19:19 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.124610
+2017/01/13 09:19:19 BGP: PrintBenchmarkStats: Average bgp lookupservice latency (ms) 0.000000
+2017/01/13 09:19:19 BGP: PrintBenchmarkStats: comma separated: 8025.043173, 0.105715, 0.003606, 0.000000, 0.124610
+2017/01/13 09:19:19 BGP: bgp_process_main: num adverts 900123, time 1484320759 secs 815167558 nsec
+
+TRADITIONAL
+
+2017/01/13 09:21:44 BGP: bgp_update_main: start time of first advertisement: 1484320904 secs, 394983719 ns
+2017/01/13 09:21:44 BGP: bgp_route: starting end to end clock
+2017/01/13 09:23:26 BGP: PrintBenchmarkStats: nanosec dur 102575328378, seconds 102.575328, tput 8775.180292
+2017/01/13 09:23:26 BGP: PrintBenchmarkStats: Advertisement processed per second: 8775.180292
+2017/01/13 09:23:26 BGP: PrintBenchmarkStats: Average bgp deserialization latency (ms) 0.006213
+2017/01/13 09:23:26 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.002994 (0.000963: bgp_process_main, 0.002031: bgp_nlri_parse)
+2017/01/13 09:23:26 BGP: elapsed time is: 102575.328337
+2017/01/13 09:23:26 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.113958
+2017/01/13 09:23:26 BGP: PrintBenchmarkStats: comma separated: 8775.180292, 0.006213, 0.002994, 0.000000, 0.113958
+2017/01/13 09:23:26 BGP: bgp_process_main: num adverts 900117, time 1484321006 secs 970385079 nsec
+2017/01/13 09:23:26 BGP: bgp_process_main: num times processmain called: 107907
+
+2017/01/13 09:24:13 BGP: bgp_update_main: start time of first advertisement: 1484321053 secs, 557030216 ns
+2017/01/13 09:24:13 BGP: bgp_route: starting end to end clock
+2017/01/13 09:25:56 BGP: PrintBenchmarkStats: nanosec dur 102791866164, seconds 102.791866, tput 8757.910850
+2017/01/13 09:25:56 BGP: PrintBenchmarkStats: Advertisement processed per second: 8757.910850
+2017/01/13 09:25:56 BGP: PrintBenchmarkStats: Average bgp deserialization latency (ms) 0.006666
+2017/01/13 09:25:56 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.002949 (0.000937: bgp_process_main, 0.002012: bgp_nlri_parse)
+2017/01/13 09:25:56 BGP: elapsed time is: 102791.866099
+2017/01/13 09:25:56 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.114182
+2017/01/13 09:25:56 BGP: PrintBenchmarkStats: comma separated: 8757.910850, 0.006666, 0.002949, 0.000000, 0.114182
+2017/01/13 09:25:56 BGP: bgp_process_main: num adverts 900242, time 1484321156 secs 348968828 nsec
+2017/01/13 09:25:56 BGP: bgp_process_main: num times processmain called: 108494
+
+2017/01/13 09:26:23 BGP: bgp_update_main: start time of first advertisement: 1484321183 secs, 610836959 ns
+2017/01/13 09:26:23 BGP: bgp_route: starting end to end clock
+2017/01/13 09:28:06 BGP: PrintBenchmarkStats: nanosec dur 102894206943, seconds 102.894207, tput 8750.764759
+2017/01/13 09:28:06 BGP: PrintBenchmarkStats: Advertisement processed per second: 8750.764759
+2017/01/13 09:28:06 BGP: PrintBenchmarkStats: Average bgp deserialization latency (ms) 0.006325
+2017/01/13 09:28:06 BGP: PrintBenchmarkStats: Average bgp processing latency (ms) 0.002965 (0.000947: bgp_process_main, 0.002018: bgp_nlri_parse)
+2017/01/13 09:28:06 BGP: elapsed time is: 102894.206904
+2017/01/13 09:28:06 BGP: PrintBenchmarkStats: Average bgp end_to_end (ms) 0.114276
+2017/01/13 09:28:06 BGP: PrintBenchmarkStats: comma separated: 8750.764759, 0.006325, 0.002965, 0.000000, 0.114276
+2017/01/13 09:28:06 BGP: bgp_process_main: num adverts 900403, time 1484321286 secs 505120221 nsec
+2017/01/13 09:28:06 BGP: bgp_process_main: num times processmain called: 108146

@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='QuaggaTopo.proto',
   package='',
-  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\x97\x03\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_initd\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\x12\x11\n\tisland_id\x18\x08 \x01(\r\x12\x1a\n\x12private_pathlet_ip\x18\t \x01(\t\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x18\n\x10is_border_router\x18\x0b \x01(\r\x12!\n\x0emanual_two_hop\x18\x0c \x01(\x0b\x32\t.MnFilter\x12=\n\x1a\x62\x65nchmark_protocol_options\x18\r \x01(\x0b\x32\x19.BenchmarkProtocolOptions\x12=\n\x1aupdate_regenerator_options\x18\x0e \x01(\x0b\x32\x19.UpdateRegeneratorOptions\"+\n\x18UpdateRegeneratorOptions\x12\x0f\n\x07\x63ommand\x18\x01 \x01(\t\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry\"N\n\x08MnFilter\x12\x12\n\none_hop_ip\x18\x01 \x01(\t\x12.\n\x14pathlet_to_advertise\x18\x02 \x01(\x0b\x32\x10.MnManualPathlet\"F\n\x0fMnManualPathlet\x12\x0e\n\x06vnode1\x18\x01 \x01(\r\x12\x0e\n\x06vnode2\x18\x02 \x01(\r\x12\x13\n\x0b\x64\x65stination\x18\x03 \x01(\t\"6\n\x18\x42\x65nchmarkProtocolOptions\x12\x1a\n\x12num_bytes_to_write\x18\x01 \x01(\r*Z\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02\x12\x19\n\x15HT_UPDATE_REGENERATOR\x10\x03')
+  serialized_pb=_b('\n\x10QuaggaTopo.proto\"\x97\x03\n\x04Host\x12\x1c\n\thost_type\x18\x01 \x01(\x0e\x32\t.HostType\x12\x11\n\thost_name\x18\x02 \x01(\t\x12\n\n\x02ip\x18\x03 \x01(\t\x12\r\n\x05lo_ip\x18\x04 \x01(\t\x12\x0e\n\x06\x61s_num\x18\x05 \x01(\r\x12\x15\n\rpath_to_initd\x18\x06 \x01(\t\x12 \n\x18path_to_redis_executable\x18\x07 \x01(\t\x12\x11\n\tisland_id\x18\x08 \x01(\r\x12\x1a\n\x12private_pathlet_ip\x18\t \x01(\t\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x18\n\x10is_border_router\x18\x0b \x01(\r\x12!\n\x0emanual_two_hop\x18\x0c \x01(\x0b\x32\t.MnFilter\x12=\n\x1a\x62\x65nchmark_protocol_options\x18\r \x01(\x0b\x32\x19.BenchmarkProtocolOptions\x12=\n\x1aupdate_regenerator_options\x18\x0e \x01(\x0b\x32\x19.UpdateRegeneratorOptions\"+\n\x18UpdateRegeneratorOptions\x12\x0f\n\x07\x63ommand\x18\x01 \x01(\t\"5\n\x04Link\x12\x1a\n\x12\x61\x64jacent_node_name\x18\x01 \x01(\t\x12\x11\n\tlink_cost\x18\x02 \x01(\r\"E\n\x12\x41\x64jacencyListEntry\x12\x19\n\x11primary_node_name\x18\x01 \x01(\t\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x08Topology\x12\x33\n\x16\x61\x64jacency_list_entries\x18\x01 \x03(\x0b\x32\x13.AdjacencyListEntry\"N\n\x08MnFilter\x12\x12\n\none_hop_ip\x18\x01 \x01(\t\x12.\n\x14pathlet_to_advertise\x18\x02 \x01(\x0b\x32\x10.MnManualPathlet\"F\n\x0fMnManualPathlet\x12\x0e\n\x06vnode1\x18\x01 \x01(\r\x12\x0e\n\x06vnode2\x18\x02 \x01(\r\x12\x13\n\x0b\x64\x65stination\x18\x03 \x01(\t\"i\n\x18\x42\x65nchmarkProtocolOptions\x12\x1a\n\x12num_bytes_to_write\x18\x01 \x01(\r\x12\x11\n\tin_memory\x18\x02 \x01(\r\x12\x1e\n\x16\x61\x64hoc_in_lookupservice\x18\x03 \x01(\r*Z\n\x08HostType\x12\x0e\n\nHT_UNKNOWN\x10\x00\x12\r\n\tHT_QUAGGA\x10\x01\x12\x14\n\x10HT_LOOKUPSERVICE\x10\x02\x12\x19\n\x15HT_UPDATE_REGENERATOR\x10\x03')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -48,8 +48,8 @@ _HOSTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=874,
-  serialized_end=964,
+  serialized_start=925,
+  serialized_end=1015,
 )
 _sym_db.RegisterEnumDescriptor(_HOSTTYPE)
 
@@ -411,6 +411,20 @@ _BENCHMARKPROTOCOLOPTIONS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='in_memory', full_name='BenchmarkProtocolOptions.in_memory', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='adhoc_in_lookupservice', full_name='BenchmarkProtocolOptions.adhoc_in_lookupservice', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -423,7 +437,7 @@ _BENCHMARKPROTOCOLOPTIONS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=818,
-  serialized_end=872,
+  serialized_end=923,
 )
 
 _HOST.fields_by_name['host_type'].enum_type = _HOSTTYPE

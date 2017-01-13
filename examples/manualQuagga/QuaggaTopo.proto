@@ -82,4 +82,10 @@ message MnManualPathlet{
 message BenchmarkProtocolOptions {
   // the number of bytes to write to the advertisement
   optional uint32 num_bytes_to_write = 1;
+  // 1 if the advert should be created locally and placed in memory only
+  optional uint32 in_memory = 2;
+  // 1 if the advert should be created locally and placed in the lookupservice
+  // in an ad hoc manner. A local key will be created for it and any advert that
+  // this router recieves will look in the lookup service for this key.
+  optional uint32 adhoc_in_lookupservice = 3;
 }

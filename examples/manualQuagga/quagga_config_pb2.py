@@ -19,7 +19,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='quagga_config.proto',
   package='',
-  serialized_pb=_b('\n\x13quagga_config.proto\"\x81\x02\n\rConfiguration\x12$\n\rprotocol_type\x18\x01 \x01(\x0e\x32\r.ProtocolType\x12\x11\n\tisland_id\x18\x02 \x01(\r\x12\x1a\n\x12island_member_ases\x18\x03 \x03(\r\x12\x33\n\x15wiser_protocol_config\x18\x04 \x01(\x0b\x32\x14.WiserProtocolConfig\x12+\n\x0epathlet_config\x18\x05 \x01(\x0b\x32\x13.PathletProtoConfig\x12\x39\n\x19\x62\x65nchmark_protocol_config\x18\x06 \x01(\x0b\x32\x16.BenchmarkProtolConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t\"k\n\x12PathletProtoConfig\x12\x1f\n\x17is_island_border_router\x18\x01 \x01(\r\x12\x1a\n\x12private_slash24_ip\x18\x02 \x01(\t\x12\x18\n\x07\x66ilters\x18\x03 \x03(\x0b\x32\x07.Filter\"J\n\x06\x46ilter\x12\x12\n\none_hop_ip\x18\x01 \x01(\t\x12,\n\x14pathlet_to_advertise\x18\x02 \x01(\x0b\x32\x0e.ManualPathlet\"D\n\rManualPathlet\x12\x0e\n\x06vnode1\x18\x01 \x01(\r\x12\x0e\n\x06vnode2\x18\x02 \x01(\r\x12\x13\n\x0b\x64\x65stination\x18\x03 \x01(\t\"1\n\x15\x42\x65nchmarkProtolConfig\x12\x18\n\x10num_bytes_to_set\x18\x01 \x01(\r*y\n\x0cProtocolType\x12\x0e\n\nPT_UNKNOWN\x10\x00\x12\x0c\n\x08PT_WISER\x10\x01\x12\x0f\n\x0bPT_PATHLETS\x10\x02\x12\x17\n\x13PT_BASELINE_SLEEPER\x10\x03\x12\x10\n\x0cPT_BENCHMARK\x10\x04\x12\x0f\n\x0bPT_BASELINE\x10\x05')
+  serialized_pb=_b('\n\x13quagga_config.proto\"\x81\x02\n\rConfiguration\x12$\n\rprotocol_type\x18\x01 \x01(\x0e\x32\r.ProtocolType\x12\x11\n\tisland_id\x18\x02 \x01(\r\x12\x1a\n\x12island_member_ases\x18\x03 \x03(\r\x12\x33\n\x15wiser_protocol_config\x18\x04 \x01(\x0b\x32\x14.WiserProtocolConfig\x12+\n\x0epathlet_config\x18\x05 \x01(\x0b\x32\x13.PathletProtoConfig\x12\x39\n\x19\x62\x65nchmark_protocol_config\x18\x06 \x01(\x0b\x32\x16.BenchmarkProtolConfig\"2\n\x13WiserProtocolConfig\x12\x1b\n\x08topology\x18\x01 \x01(\x0b\x32\t.Topology\")\n\x08Topology\x12\x1d\n\nnode_links\x18\x01 \x03(\x0b\x32\t.NodeLink\"E\n\x08NodeLink\x12#\n\x0cprimary_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x14\n\x05links\x18\x02 \x03(\x0b\x32\x05.Link\"?\n\x04Link\x12$\n\radjacent_node\x18\x01 \x01(\x0b\x32\r.NodeProperty\x12\x11\n\tlink_cost\x18\x02 \x01(\x04\"7\n\x0cNodeProperty\x12\x11\n\tnode_name\x18\x01 \x01(\t\x12\x14\n\x0cinterface_ip\x18\x02 \x01(\t\"k\n\x12PathletProtoConfig\x12\x1f\n\x17is_island_border_router\x18\x01 \x01(\r\x12\x1a\n\x12private_slash24_ip\x18\x02 \x01(\t\x12\x18\n\x07\x66ilters\x18\x03 \x03(\x0b\x32\x07.Filter\"J\n\x06\x46ilter\x12\x12\n\none_hop_ip\x18\x01 \x01(\t\x12,\n\x14pathlet_to_advertise\x18\x02 \x01(\x0b\x32\x0e.ManualPathlet\"D\n\rManualPathlet\x12\x0e\n\x06vnode1\x18\x01 \x01(\r\x12\x0e\n\x06vnode2\x18\x02 \x01(\r\x12\x13\n\x0b\x64\x65stination\x18\x03 \x01(\t\"d\n\x15\x42\x65nchmarkProtolConfig\x12\x18\n\x10num_bytes_to_set\x18\x01 \x01(\r\x12\x11\n\tin_memory\x18\x02 \x01(\r\x12\x1e\n\x16\x61\x64hoc_in_lookupservice\x18\x03 \x01(\r*y\n\x0cProtocolType\x12\x0e\n\nPT_UNKNOWN\x10\x00\x12\x0c\n\x08PT_WISER\x10\x01\x12\x0f\n\x0bPT_PATHLETS\x10\x02\x12\x17\n\x13PT_BASELINE_SLEEPER\x10\x03\x12\x10\n\x0cPT_BENCHMARK\x10\x04\x12\x0f\n\x0bPT_BASELINE\x10\x05')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -56,8 +56,8 @@ _PROTOCOLTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=877,
-  serialized_end=998,
+  serialized_start=928,
+  serialized_end=1049,
 )
 _sym_db.RegisterEnumDescriptor(_PROTOCOLTYPE)
 
@@ -446,6 +446,20 @@ _BENCHMARKPROTOLCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='in_memory', full_name='BenchmarkProtolConfig.in_memory', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='adhoc_in_lookupservice', full_name='BenchmarkProtolConfig.adhoc_in_lookupservice', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -458,7 +472,7 @@ _BENCHMARKPROTOLCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=826,
-  serialized_end=875,
+  serialized_end=926,
 )
 
 _CONFIGURATION.fields_by_name['protocol_type'].enum_type = _PROTOCOLTYPE

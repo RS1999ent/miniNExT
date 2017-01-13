@@ -8,6 +8,7 @@ import QuaggaTopo_pb2
 from mininext.topo import Topo
 from mininext.services.quagga import QuaggaService
 from mininext.services.manual_quagga_service import ManualQuaggaService
+from mininext.services.update_regenerator_service import UpdateRegeneratorService
 
 from collections import namedtuple
 
@@ -109,9 +110,58 @@ class QuaggaTopo(Topo):
                 service=ManualQuaggaService(
                     path_to_initd, autoStop=False),
                 nodeConfig=quaggaSvcConfig)
+        # elif host_proto.HasField('update_regenerator_options'):
+        #     start_command = str(host_proto.update_regenerator_options.command)
+        #     self.addNodeService(
+        #         node=hostname,
+        #         service=UpdateRegeneratorService(
+        #             start_command, autoStop=False),
+        #         nodeConfig=quaggaSvcConfig)
+
+        else:
+            if(host_proto.host_type == QuaggaTopo_pb2.HostType.Value('HT_QUAGGA')):
+                self.addNodeService(
+                    node=hostname, service=QuaggaService(autoStop=False), nodeConfig=quaggaSvcConfig)
+
+        # Attach the quaggaContainer to the IXP Fabric Switch
+        self.addLink(quagga_container, ixp_fabric)
+
+    def InitializeUpdateRegenerator(self, ixp_fabric, host_proto, config_path):
+        print 'HOSTNAME', host_proto.host_name
+        print 'hostip', host_proto.ip
+        hostname = str(host_proto.host_name)
+        hostip = str(host_proto.ip)
+        update_regen_container = self.addHost(
+            name=hostname,
+            ip=hostip,
+            hostname=hostname,
+            privateLogDir=True,
+            privateRunDir=True,
+            inMountNamespace=True,
+            inPIDNamespace=True,
+            inUTSNamespace=True)
+        print update_regen_container
+        if host_proto.HasField('lo_ip'):
+            # Add a loopback interface with an IP in router's announced range
+            loip = str(host_proto.lo_ip) + '/24'
+            print "loopbackip is: ", loip
+            self.addNodeLoopbackIntf(node=host_proto.host_name, ip=loip)
+
+        # Configure and setup the Quagga service for this node
+        quaggaSvcConfig = \
+            {'quaggaConfigPath': config_path + hostname}
+        print quaggaSvcConfig
+        if host_proto.HasField('path_to_initd'):
+            path_to_initd = str(host_proto.path_to_initd)
+            print "Path to initd: ", path_to_initd
+            self.addNodeService(
+                node=hostname,
+                service=ManualQuaggaService(
+                    path_to_initd, autoStop=False),
+                nodeConfig=quaggaSvcConfig)
         else:
             self.addNodeService(
                 node=hostname, service=QuaggaService(autoStop=False), nodeConfig=quaggaSvcConfig)
 
         # Attach the quaggaContainer to the IXP Fabric Switch
-        self.addLink(quagga_container, ixp_fabric)
+        self.addLink(update_regen_container, ixp_fabric)

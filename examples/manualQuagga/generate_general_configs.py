@@ -68,6 +68,8 @@ def CreateGeneralConfigs(protobuf_hosts, protobuf_topology):
             benchmark_config = quagga_config_pb2.BenchmarkProtolConfig()
             if host.HasField("benchmark_protocol_options"):
                 benchmark_config.num_bytes_to_set = host.benchmark_protocol_options.num_bytes_to_write
+                benchmark_config.in_memory = host.benchmark_protocol_options.in_memory
+                benchmark_config.adhoc_in_lookupservice = host.benchmark_protocol_options.adhoc_in_lookupservice
                 return_dict[hostname] = benchmark_config
 
         return return_dict

@@ -1,0 +1,51 @@
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "a1"
+ip: "172.0.1.1"
+lo_ip: "10.0.1.1"
+as_num: 100
+path_to_initd :"/home/david/repos/instrumented_quagga/quagga-0.99.24.1/quagga"
+<end Host>
+
+<begin Host>
+host_type : HT_QUAGGA
+host_name: "b1"
+ip: "172.0.2.1"
+lo_ip: "10.0.2.1"
+as_num: 101
+path_to_initd :"/home/david/repos/instrumented_quagga/quagga-0.99.24.1/quagga"
+<end Host>
+
+<begin Host>
+host_type : HT_LOOKUPSERVICE
+host_name: "l1"
+ip: "172.0.5.1"
+lo_ip: "10.0.5.1"
+as_num: 104
+path_to_redis_executable :"/home/david/repos/kvstores/redis/src/redis-server"
+<end Host>
+
+<begin Topology>
+adjacency_list_entries {
+    primary_node_name: "a1"
+    links{
+        adjacent_node_name: "b1"
+        link_cost : 10
+    }
+    links{
+        adjacent_node_name: "l1"
+        link_cost : 10
+    }
+}
+adjacency_list_entries {
+    primary_node_name: "b1"
+    links{
+        adjacent_node_name: "a1"
+        link_cost: 10
+    }
+    links{
+        adjacent_node_name: "l1"
+        link_cost : 10
+    }
+}
+<end Topology>
