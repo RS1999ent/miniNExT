@@ -1,11 +1,4 @@
 
-BELOW IS THE INFORMATION FOR RUNNING THE 'manualQuagga' example.
-
-This file describes how to use the sample quagga-ixp topology
-provided with MiniNexT.  The quagga-ixp topology simulates a small
-network w/a few ASes connected to each other via a switch.  Each AS is
-simulated by a single Quagga router.
-
 0)apt-get install mininet.  Make sure it is version 2.1
 
 1)Clone MiniNeXt and build it.
@@ -42,7 +35,7 @@ path_to_initd: ".../quagga/initd_script"
 
 Defines the protobuf text format for a 'Host' message type and will be parsed
 into a host protobuf message. 'path_to_initd' is optional and specifies a
-particular initd script to be run.
+particular initd script to be run. Otherwise, uses the default on the system.
 
 Topology config example:
 <begin Topology>
@@ -63,9 +56,11 @@ adjacency_list_entries {
 <end Topology>
 
 This defines a protobuf topology message in text format.
-NOTE1: while it looks
-like you can have asymetric link costs, when quagga is running, it is assuming
-that consts are symetric. Therefore, if you define asymetric costs, the behavior is undefined.
+
+NOTE1: while it looks like you can have asymetric link costs, when quagga is
+running, it is assuming that costs are symetric. Therefore, if you define
+asymetric costs, the behavior is undefined.
+
 NOTE2: For the purposes of configuration in MiniNext, you have to define both
 ends of the link. That is, a link from a1 to b1 has to be defined like above
 (one from a1 to b1 and one from b1 to a1).
